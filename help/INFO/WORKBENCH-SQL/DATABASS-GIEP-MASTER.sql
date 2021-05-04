@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `GIEP-MASTER-DATABASS`.`agents` (
   `pole_service` VARCHAR(45) NULL,
   `function` VARCHAR(45) NULL,
   `passwords` VARCHAR(45) NULL,
-  `active` TINYINT NOT NULL,
+  `active` TINYINT NULL,
   `email` VARCHAR(70) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
