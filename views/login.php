@@ -59,49 +59,58 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 	}
 }
 ?>
-    <div class="container d-flex mt-4 h-mini-90">
-        <div class="col-lg-12">
-            <?php
+<div class="container d-flex mt-4 h-mini-90">
+    <div class="col-lg-12">
+        <?php
             if(isset($errorMsg))
             {
                 foreach($errorMsg as $error)
                 {
                 ?>
-                    <div class="alert alert-danger">
-                        <strong><?php echo $error; ?></strong>
-                    </div>
-                <?php
+        <div class="alert alert-danger">
+            <strong><?php echo $error; ?></strong>
+        </div>
+        <?php
                 }
             }
             if(isset($loginMsg))
             {
             ?>
-                <div class="alert alert-success">
-                    <strong><?php echo $loginMsg; ?></strong>
-                </div>
-            <?php
+        <div class="alert alert-success">
+            <strong><?php echo $loginMsg; ?></strong>
+        </div>
+        <?php
             }
             ?>
-            <form action="" method="post" name="fo">
-                <!-- <div class="erreur"><?php echo $erreur ?></div> -->                
-                <div class="text-center col-12 mt-1">
-                    <img  src="" alt="" width="72" height="72">
-                </div>
-                <div class="text-center">
+
+
+        <!-- <form action="" method="post" name="fo">
+            <!-- <div class="erreur"><?php echo $erreur ?></div> -->
+            <div class="text-center col-12 mt-1">
+                <img src="" alt="" width="72" height="72">
+            </div>
+            <div class="text-center">
                 <h1><strong>PROJECT</strong></a></h1>
-                </div>
-                <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter<hr></h2>
-                <div class="form-group">
-                    <label for="loginEmail" class="pb-1"><strong>Email :</strong></label>
-                    <input type="text" class="form-control" id="loginEmail"  placeholder="Enter votre email" name="txt_email">
-                </div>
-                <div class="form-group pt-2">
-                    <label for="Passwordid" class="pb-1"><strong>Password :</strong></label>
-                    <input type="password" class="form-control" id="Passwordid" placeholder="Enter votre mots de pass" name="txt_password">
-                </div>
-                <div class="text-center  mb-3">
-                <button class="btn btn-lg btn-facebook-b btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier">S'identifier</button>
-                </div> <span><a href="../index.php" class="text-decoration-none">Retour à l'accueil</a></span><span  class="ms-4 "><a href="registration.php" class="text-decoration-none">Vous n'avez pas de compte ? Créez vous un compte</a> </span>
-            </form>
-        </div>
+            </div>
+            <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter
+                <hr>
+            </h2>
+            <div class="form-group">
+                <label for="loginEmail" class="pb-1"><strong>Email :</strong></label>
+                <input type="text" class="form-control" id="loginEmail" placeholder="Enter votre email"
+                    name="txt_email">
+            </div>
+            <div class="form-group pt-2">
+                <label for="Passwordid" class="pb-1"><strong>Password :</strong></label>
+                <input type="password" class="form-control" id="Passwordid" placeholder="Enter votre mots de pass"
+                    name="txt_password">
+            </div>
+            <div class="text-center  mb-3">
+                <button class="btn btn-lg btn-facebook-b btn-block mt-4 text-center" type="submit" name="valider"
+                    value="S'authentifier">S'identifier</button>
+            </div> <span><a href="../index.php" class="text-decoration-none">Retour à l'accueil</a></span><span
+                class="ms-4 "><a href="registration.php" class="text-decoration-none">Vous n'avez pas de compte ? Créez
+                    vous un compte</a> </span>
+        </form> -->
     </div>
+</div>
