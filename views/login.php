@@ -82,35 +82,39 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
         <?php
             }
             ?>
+        <form>
+            <div class="row justify-content-md-center">
+                <div class="col-4 text-center">
+                    <div class="title">
+                        <h1>Identification</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bg-light">
+                <div class="row justify-content-md-center p-5">
+                    <div class="col-md-3">
+                        <label for="inputFirstName" class="form-label">NOM</label>
+                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputLastName" class="form-label">PRENOM</label>
+                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputPassword4" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4">
+                    </div>
+                </div>
+                <div class="row justify-content-md-center p-5 pt-0">
+                    <div class="col-2 text-center">
+                        <button class="btn btn-primary" type="submit">Connexion</button>
+                    </div>
+                </div>
+                
+            </div>
+        </form>
 
 
-        <!-- <form action="" method="post" name="fo">
-            <!-- <div class="erreur"><?php echo $erreur ?></div> -->
-            <div class="text-center col-12 mt-1">
-                <img src="" alt="" width="72" height="72">
-            </div>
-            <div class="text-center">
-                <h1><strong>PROJECT</strong></a></h1>
-            </div>
-            <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter
-                <hr>
-            </h2>
-            <div class="form-group">
-                <label for="loginEmail" class="pb-1"><strong>Email :</strong></label>
-                <input type="text" class="form-control" id="loginEmail" placeholder="Enter votre email"
-                    name="txt_email">
-            </div>
-            <div class="form-group pt-2">
-                <label for="Passwordid" class="pb-1"><strong>Password :</strong></label>
-                <input type="password" class="form-control" id="Passwordid" placeholder="Enter votre mots de pass"
-                    name="txt_password">
-            </div>
-            <div class="text-center  mb-3">
-                <button class="btn btn-lg btn-facebook-b btn-block mt-4 text-center" type="submit" name="valider"
-                    value="S'authentifier">S'identifier</button>
-            </div> <span><a href="../index.php" class="text-decoration-none">Retour à l'accueil</a></span><span
-                class="ms-4 "><a href="registration.php" class="text-decoration-none">Vous n'avez pas de compte ? Créez
-                    vous un compte</a> </span>
-        </form> -->
     </div>
 </div>
