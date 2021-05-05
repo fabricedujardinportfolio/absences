@@ -1,13 +1,10 @@
 <?php
 include("../model/header.php");
 require_once '../classes/database.php';
-
-session_start();
-
-if(isset($_SESSION["user_login"]))	//check condition user login not direct back to index.php page
-{
-	header("location: index.php");
-}
+// if(!isset($_SESSION["user_login"]))	//check condition user login not direct back to index.php page
+// {
+// 	header("location: ../index.php");
+// }
 
 if(isset($_REQUEST['valider']))	//button name is "btn_login"
 {
@@ -87,25 +84,50 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
             <form action="" method="post" name="fo">
                 <!-- <div class="erreur"><?php echo $erreur ?></div> -->                
                 <div class="text-center col-12 mt-1">
-                    <img  src="../public/images/man-logo.svg" alt="" width="72" height="72">
+                    <img  src="../public/images/logo.png" alt="logo du giep" width="110" height="72">
                 </div>
                 <div class="text-center">
-                <h1><strong>PROJECT BLOG</strong></a></h1>
+                <h1><strong class="text-uppercase">Authentification</strong></a></h1>
                 </div>
                 <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter<hr></h2>
                 <div class="form-group">
                     <label for="loginEmail" class="pb-1"><strong>Email :</strong></label>
-                    <input type="text" class="form-control" id="loginEmail"  placeholder="Enter votre email" name="email">
+                    <input type="email" class="form-control" id="loginEmail"  placeholder="Enter votre email" name="email">
                 </div>
                 <div class="form-group pt-2">
-                    <label for="Passwordid" class="pb-1"><strong>Password :</strong></label>
+                    <label for="Passwordid" class="pb-1"><strong>Mot de passe :</strong></label>
                     <input type="password" class="form-control" id="Passwordid" placeholder="Enter votre mots de pass" name="passwords">
                 </div>
                 <div class="text-center  mb-3">
-                <button class="btn btn-lg btn-facebook-b btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier">S'identifier</button>
-                </div> <span><a href="../index.php" class="text-decoration-none">Retour à l'accueil</a></span><span  class="ms-4 "><a href="registration.php" class="text-decoration-none">Vous n'avez pas de compte ? Créez vous un compte</a> </span>
+                <button class="btn btn-lg btn btn-primary btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier">S'identifier</button>
+                </div> 
             </form>
+            <!-- <form>
+    <div class="row justify-content-md-center">
+        <div class="col-4 text-center">
+            <div class="text-center title">
+                <h1><strong>Authentification</strong></a></h1>
+            </div>
+                <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter<hr></h2>
         </div>
     </div>
+    <div class="row bg-light">
+        <div class="row justify-content-md-center p-5">
+            <div class="col-md-3">
+                <label for="loginEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="loginEmail"  placeholder="Enter votre email" name="email">
+            </div>
+            <div class="col-md-3">
+                <label for="Passwordid" class="form-label">Mot de Passe</label>
+                <input type="password" class="form-control" id="Passwordid" name="passwords" placeholder="Enter votre mots de pass">
+            </div>
+        </div>
+        <div class="row justify-content-md-center p-5 pt-0">
+            <div class="col-2 text-center">
+                <button class="btn btn-primary" type="submit">Connexion</button>
+            </div>
+        </div>
+    </div>
+</form> -->
 </body>
 <?php include("../model/footer.php");?>
