@@ -9,6 +9,10 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     else: 
 ?>
 
+<!-- SCRIPT ICI -->
+</head>
+<body>
+<div class="container">
 <!-- ************Formulair de saisi***************** -->
 
 <form class="container bg-light p-5">

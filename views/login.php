@@ -56,6 +56,10 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 	}
 }
 ?>
+<!-- SCRIPT ICI -->
+</head>
+<body>
+<div class="container">
     <div class="container d-flex mt-4 h-mini-90">
         <div class="col-lg-12">
             <?php
@@ -90,11 +94,11 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                 <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter<hr></h2>
                 <div class="form-group">
                     <label for="loginEmail" class="pb-1"><strong>Email :</strong></label>
-                    <input type="email" class="form-control" id="loginEmail"  placeholder="Enter votre email" name="email">
+                    <input type="email" class="form-control" id="loginEmail"  placeholder="Entrer votre email" name="email">
                 </div>
                 <div class="form-group pt-2">
                     <label for="Passwordid" class="pb-1"><strong>Mot de passe :</strong></label>
-                    <input type="password" class="form-control" id="Passwordid" placeholder="Enter votre mots de pass" name="passwords">
+                    <input type="password" class="form-control" id="Passwordid" placeholder="Entrer votre mots de pass" name="passwords">
                 </div>
                 <div class="text-center  mb-3">
                 <button class="btn btn-lg btn btn-primary btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier">S'identifier</button>
