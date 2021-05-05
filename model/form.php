@@ -49,7 +49,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
           <label for="inputLastName" class="form-label">DATE DE DÉBUT</label>
         </div>
         <div class="col-md-8">
-          <input type="date" class="form-control" name=" ">
+          <input type="date" id="dayNow" class="form-control" name=" ">
         </div>
       </div>
     </div>
