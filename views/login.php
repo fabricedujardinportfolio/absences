@@ -27,7 +27,6 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 			{
 				if($email==$row["email"]) //check condition user taypable "email" is match from database "email" after continue
 				{
-                    echo "ok";
 					if($password==$row["passwords"]) //check condition user taypable "password" is match from database "password" using password_verify() after continue
 					{
 						$_SESSION["user_login"] = $row["id"];	//session name is "user_login"
@@ -57,7 +56,6 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 	}
 }
 ?>
-<body>
     <div class="container d-flex mt-4 h-mini-90">
         <div class="col-lg-12">
             <?php
@@ -102,32 +100,4 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                 <button class="btn btn-lg btn btn-primary btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier">S'identifier</button>
                 </div> 
             </form>
-            <!-- <form>
-    <div class="row justify-content-md-center">
-        <div class="col-4 text-center">
-            <div class="text-center title">
-                <h1><strong>Authentification</strong></a></h1>
-            </div>
-                <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter<hr></h2>
-        </div>
-    </div>
-    <div class="row bg-light">
-        <div class="row justify-content-md-center p-5">
-            <div class="col-md-3">
-                <label for="loginEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="loginEmail"  placeholder="Enter votre email" name="email">
-            </div>
-            <div class="col-md-3">
-                <label for="Passwordid" class="form-label">Mot de Passe</label>
-                <input type="password" class="form-control" id="Passwordid" name="passwords" placeholder="Enter votre mots de pass">
-            </div>
-        </div>
-        <div class="row justify-content-md-center p-5 pt-0">
-            <div class="col-2 text-center">
-                <button class="btn btn-primary" type="submit">Connexion</button>
-            </div>
-        </div>
-    </div>
-</form> -->
-</body>
 <?php include("../model/footer.php");?>
