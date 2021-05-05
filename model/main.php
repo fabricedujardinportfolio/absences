@@ -37,4 +37,3 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         </div>
     </div>
 </div>
-<?php endif;

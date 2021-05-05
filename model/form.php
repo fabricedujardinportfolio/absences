@@ -1,3 +1,13 @@
+<?php 
+if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
+    ?>
+        <div class="alert alert-danger">
+            <strong><?php echo "LOGIN FIRST"; ?></strong>
+        </div>
+    <?php
+        header("refresh:2; views/login.php");
+    else: 
+?>  
   <form class="container-fluid bg-light p-5">
 
     <!-- <div class="title row justify-content-center">
@@ -79,3 +89,4 @@
 
 
   </form>
+  <?php endif;
