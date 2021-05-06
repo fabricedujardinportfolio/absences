@@ -10,6 +10,8 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
 ?>
 
 <!-- SCRIPT ICI -->
+<script type="text/javascript" src="public/js/jquery.min.js"></script>
+<script type="text/javascript" src="public/js/script.js"></script>
 </head>
 
 <body>
@@ -35,15 +37,18 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
             </div>
           </div>
         </div>
+
         <div class="col-md-6">
           <div class="col-md-12 d-flex">
             <div class="col-md-4">
               <label for="inputFirstName" class="form-label">PRENOM </label>
             </div>
-            <div class="col-md-8">
-              <input type="text" class="form-control" placeholder="Prénom" aria-label="First name" name=" ">
-            </div>
-          </div>
+           
+
+        <div class="col-md-8">
+          <input type="text" class="form-control" placeholder="Nom" aria-label="name" id="name" onkeyup="autocomplet()">
+          <span><ul id="name_list"></ul></span>
+
         </div>
       </div>
 
@@ -59,15 +64,18 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
             </div>
           </div>
         </div>
+
         <div class="col-md-6">
           <div class="col-md-12 d-flex">
             <div class="col-md-4">
               <label for="inputLastName" class="form-label">DATE DE FIN</label>
             </div>
-            <div class="col-md-8">
-              <input type="date" class="form-control" name=" ">
-            </div>
-          </div>
+         
+
+        <div class="col-md-8">
+          <input type="text" class="form-control" placeholder="Prénom" aria-label="First name" id="first_name" onkeyup="autocompletfirst_name()">       
+          <span><ul id="first_name_list"></ul></span>
+
         </div>
       </div>
 
