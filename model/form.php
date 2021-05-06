@@ -63,9 +63,9 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
 
       <div class="col-md-12 d-flex text-center my-5">
         <div class="col-md-6">
-          <div class="col-md-12 d-flex">
+          <div class="col-md-12 d-flex align-items-center">
             <div class="col-md-4">
-              <label for="inputLastName" class="form-label">DATE DE DÉBUT</label>
+              <label for="inputLastName" class="form-label m-0">DATE DE DÉBUT</label>
             </div>
             <div class="col-md-8">
               <input type="date" id="dayNow" class="form-control" name="date_start" value="<?php echo date('Y-m-d' ); ?>">
@@ -73,9 +73,9 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
           </div>
         </div>
         <div class="col-md-6">
-          <div class="col-md-12 d-flex mx-auto">
+          <div class="col-md-12 d-flex align-items-center ">
             <div class="col-md-4 ">
-              <label for="inputLastName" class="form-label">DATE DE FIN</label>
+              <label for="inputLastName" class="form-label m-0">DATE DE FIN</label>
             </div>
             <div class="col-md-8">
               <input type="date" class="form-control" name="date_end">

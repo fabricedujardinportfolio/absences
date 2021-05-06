@@ -30,7 +30,6 @@ $pdofn = connect();
 		$first_name = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rsfn['first_name']." ".$rsfn['name']);
 		// add new option
 		echo '<li class="border" style="list-style-type: none;" onclick="set_item(\''.$rsfn['first_name']." ".$rsfn['name'].'\');set_name(\''.$rsfn['id'].'\')">'.$first_name.'</li>';
-		
 	}
 
 ?>
