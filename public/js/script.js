@@ -12,14 +12,14 @@ function autocomplet() {
 	});
 }
 function autocompletfirst_name() {
-	var keywordfn = $('#first_name').val();
+	var keywordfn = $('.first_name').val();
 	$.ajax({
 		url: 'classes/ajax_refreshfn.php',
 		type: 'POST',
 		data: {keywordfn:keywordfn},
 		success:function(data){
-			$('#first_name_list').show();
-			$('#first_name_list').html(data);
+			$('.first_name_list').show();
+			$('.first_name_list').html(data);
 		}
 	});
 }
@@ -31,6 +31,10 @@ function set_item(item) {
 	$('#name').val(item);
 	// hide proposition list
 	$('#name_list').hide();
+	// change input value
+	$('#first_name').val(item2);
+	// hide proposition list
+	$('#first_name_list').hide();
 }
 function set_item2(item2) {
 	// change input value

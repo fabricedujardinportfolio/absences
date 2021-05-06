@@ -26,7 +26,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     </div>
 
   <div class="col-md-12 d-flex text-center">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="col-md-12 d-flex">
         <div class="col-md-4">
           <label for="inputLastName" class="form-label">NOM </label>
@@ -34,16 +34,6 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         <div class="col-md-8">
           <input type="text" class="form-control" placeholder="Nom" aria-label="name" id="name" onkeyup="autocomplet()">
           <span><ul id="name_list"></ul></span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="col-md-12 d-flex">
-        <div class="col-md-4">
-          <label for="inputFirstName" class="form-label">PRENOM </label>
-        </div>
-        <div class="col-md-8">
-          <input type="text" class="form-control" placeholder="Prénom" aria-label="First name" id="first_name" onkeyup="autocompletfirst_name()">       
           <span><ul id="first_name_list"></ul></span>
         </div>
       </div>
@@ -57,7 +47,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
           <label for="inputLastName" class="form-label">DATE DE DÉBUT</label>
         </div>
         <div class="col-md-8">
-          <input type="date" id="dayNow" class="form-control" name=" ">
+          <input type="date" id="dayNow" class="form-control" name="test" value="<?php echo date('Y-m-d'); ?>">
         </div>
       </div>
     </div>
