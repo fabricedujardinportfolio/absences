@@ -16,7 +16,20 @@ foreach ($list as $rs) {
 	// put in bold the written text
 	$name = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rs['name']." ".$rs['first_name']);
 	// add new option
-    echo '<li onclick="set_item(\''.$rs['name'].'\')">'.$name.'</li> ';
+    echo '<li onclick="set_item(\''.$rs['name']." ".$rs['first_name'].'\')">'.$name.'</li> ';
 }
+$pdofn = connect();
+	$keyword = '%'.$_POST['keyword'].'%';
+	$sqlfn = "SELECT * FROM agents WHERE first_name LIKE (:keyword) ORDER BY first_name ASC LIMIT 0, 10";
+	$queryfn = $pdofn->prepare($sqlfn);
+	$queryfn->bindParam(':keyword', $keyword, PDO::PARAM_STR);
+	$queryfn->execute();
+	$listfn = $queryfn->fetchAll();
+	foreach ($listfn as $rsfn) {
+		// put in bold the written text
+		$first_name = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rsfn['first_name']." ".$rsfn['name']);
+		// add new option
+		echo '<li onclick="set_item(\''.$rsfn['first_name']." ".$rsfn['name'].'\')">'.$first_name.'</li>';
+	}
 
 ?>
