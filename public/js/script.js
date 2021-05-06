@@ -23,7 +23,8 @@ function autocompletfirst_name() {
 		}
 	});
 }
-
+$("#btn1").click(function(){
+  });
 
 // set_item : this function will be executed when we select an item
 function set_item(item) {
@@ -34,5 +35,11 @@ function set_item(item) {
 	// change input value
 	$('#first_name').val(item);
 	// hide proposition list
-	$('#first_name_list').hide();
+	$('#first_name_list').hide();	
+}
+function set_name(item) {	
+	// change input value
+	$('#nameUser').val(item);
+	// hide proposition list
+	$('#nameUserListe').hide();	
 }

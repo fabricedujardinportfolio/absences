@@ -16,7 +16,7 @@ foreach ($list as $rs) {
 	// put in bold the written text
 	$name = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rs['name']." ".$rs['first_name']);
 	// add new option
-    echo '<li class="border" style="list-style-type: none;" onclick="set_item(\''.$rs['name']." ".$rs['first_name'].'\')">'.$name.'</li> ';
+    echo '<li class="border" style="list-style-type: none;" onclick="set_item(\''.$rs['name']." ".$rs['first_name'].'\');set_name(\''.$rs['id'].'\')">'.$name.'</li> ';
 }
 $pdofn = connect();
 	$keyword = '%'.$_POST['keyword'].'%';
@@ -29,7 +29,8 @@ $pdofn = connect();
 		// put in bold the written text
 		$first_name = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rsfn['first_name']." ".$rsfn['name']);
 		// add new option
-		echo '<li class="border" style="list-style-type: none;" onclick="set_item(\''.$rsfn['first_name']." ".$rsfn['name'].'\')">'.$first_name.'</li>';
+		echo '<li class="border" style="list-style-type: none;" onclick="set_item(\''.$rsfn['first_name']." ".$rsfn['name'].'\');set_name(\''.$rsfn['id'].'\')">'.$first_name.'</li>';
+		
 	}
 
 ?>
