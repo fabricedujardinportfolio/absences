@@ -1,5 +1,6 @@
+
 <?php
-  $root = "http://localhost/applications/absence/";
+  $root = "http://192.168.40.77/applications/absence/";
   $login_path = $root . "views/login.php";
   $logout_path = $root . "views/logout.php";
   $register_path = $root . "views/registration.php";
@@ -7,7 +8,18 @@
 ?>
 <!-- SCRIPT ICI -->
 </head>
+
 <body>
+<?php 
+if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
+    ?>
+<div class="alert alert-danger">
+  <strong><?php echo "LOGIN FIRST"; ?></strong>
+</div>
+<?php
+        header("refresh:2; views/login.php");
+    else: 
+?>
 <div class="container-fluid">
 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="<?php echo $root . "index.php" ?>"
@@ -19,3 +31,5 @@
         <li class="nav-item"><a href="<?php echo $logout_path; ?>" class="nav-link text-uppercase">Déconnexion</a></li>
     </ul>
 </header>
+
+<?php endif;
