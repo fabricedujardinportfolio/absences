@@ -1,4 +1,6 @@
 <?php include("../model/header.php");?>
+
+<div class="container">
 <h1 class="col text-center">User page</h1>
 <div class="pole col-3 border border-1 border-dark mt-5 mb-1 text-center" style="background-color:#CFE2FF">
     <h3>Agents Absents</h3>
@@ -33,5 +35,5 @@
             <td></td>
         </tr>
 </table>
-
+</div>
 
