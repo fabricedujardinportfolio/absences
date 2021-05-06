@@ -32,13 +32,7 @@ function set_item(item) {
 	// hide proposition list
 	$('#name_list').hide();
 	// change input value
-	$('#first_name').val(item2);
-	// hide proposition list
-	$('#first_name_list').hide();
-}
-function set_item2(item2) {
-	// change input value
-	$('#first_name').val(item2);
+	$('#first_name').val(item);
 	// hide proposition list
 	$('#first_name_list').hide();
 }

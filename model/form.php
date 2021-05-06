@@ -83,11 +83,33 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
 </form>
 
 <!-- ************Table de récap***************** -->
-
+<?php 
+                    try {                              
+                        $Users_id = $_SESSION["user_login"];
+                        $Users_id_int = (int)$Users_id;
+                        // var_dump($Users_id_int);SELECT * FROM `absences_absences`,`agents` WHERE agents_id ORDER BY pole_service
+                        $stmt = $conn->prepare('SELECT * FROM `absences_absences`,`agents`,`absences_arguments` WHERE agents_id=? ORDER BY pole_service AND name');
+                        $stmt->execute([$Users_id_int]);
+                        $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    }catch(PDOException $e) {
+                        echo "Error: " . $e->getMessage();
+                    }
+                    ?>   
 
 <div class="pole col-3 border border-1 border-dark mt-5 mb-1 text-center" style="background-color:#CFE2FF">
 <h3>Agents Absents</h3>
 </div>
+<!-- <?php echo"<br> Utilisateur :"?>
+<?=$post['agents_id']?>
+<?php echo"<br> Id du post :"?>
+<?=$post['id']?>
+<?php echo"<br> id du motif :"?>
+<?=$post['motifs_id']?>
+<?php echo"<br> date départ : "?>
+<?=$post['date_start']?>
+<?php echo"<br> date fin : "?>
+<?=$post['date_end']?>
+<?php echo"<br>"?> -->
 <table class="table table-primary table-striped">
 
 
@@ -99,32 +121,23 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
       <th scope="col">Date de Début</th>
       <th scope="col">Date de Fin</th>
       <th scope="col">Motifs</th>
-      <th scope="col">Statut</th>
+      <!-- <th scope="col">Statut</th> -->
       <th scope="col">Action</th>
 
     </tr>
-  </thead>
+  </thead>  
+<?php foreach ($posts as $post): ?>
   <tbody>
     <tr>
-      <th scope="row">COM</th>
-      <td>Otto</td>
-      <td>Mark</td>
-      <td>05/05/2021</td>
-      <td>07/05/2021</td>
-      <td>CP</td>
+      <th scope="row"><?=$post['pole_service']?></th>
+      <td><?=$post['name']?></td>
+      <td><?=$post['first_name']?></td>
+      <td><?=$post['date_start']?></td>
+      <td><?=$post['date_end']?></td>
+      <td><?=$post['motifs_id']?></td>
       <td></td>
-      <td></td>
-    </tr>
-    <tr>
-    <th scope="row">COM</th>
-      <td>Otto</td>
-      <td>Mark</td>
-      <td>05/05/2021</td>
-      <td>07/05/2021</td>
-      <td>CP</td>
-      <td></td>
-      <td></td>
-    </tr>
+    </tr>    
+<?php endforeach; ?>
 </table>
 
 
