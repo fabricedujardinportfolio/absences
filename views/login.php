@@ -36,7 +36,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                             $_SESSION["user_pole"] = $row["pole_service"];
                             //session name is "user_login"
                             $_SESSION["loggedIn"] = true;
-                            $loginMsg = "Successfully Login...";		//user login success message
+                            $loginMsg = "Connexion réussie...";		//user login success message
                             header("refresh:2; ../index.php");			//refresh 2 second after redirect to "welcome.php" page
                         }
                         else{                            
