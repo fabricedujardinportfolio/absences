@@ -27,7 +27,9 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         // Insert value into 
         $stmt = $conn->prepare('INSERT INTO `absences_absences` VALUES ("",?, ?, ?, ?)');
         $stmt->execute([$name_int, $Motifs_id, $Date_start_date, $Date_end_date]);  
-    $msg = 'Created Successfully!';
+    $msg = '<div class="alert alert-success" role="alert">
+    Créé avec succès!
+  </div>';
 }catch(PDOException $e) {
     // echo "Error: " . $e->getMessage();
 }
@@ -127,19 +129,42 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
 
         </tr>
       </thead>
+<?php 
+
+?>
       <?php foreach ($posts as $post): ?>
       <tbody>
         <tr>
           <th scope="row"><?=$post['pole_service']?></th>
           <td><?=$post['name']?></td>
           <td><?=$post['first_name']?></td>
-          <td><?=$post['date_start']?></td>
-          <td><?=$post['date_end']?></td>
-          <td><?=$post['motif']?></td>
+          
           <td>
+              <span class="date_start_reel_<?=$post['id']?>">
+                <?=$post['date_start']?>
+              </span>
+              <!-- <input type="text" id="date_start_"> -->
+          </td>
+          <td>
+              <span class="date_end_reel_<?=$post['id']?>">
+                <?=$post['date_end']?>
+              </span>              
+          </td>
+          <td>
+              <span class="motif_reel_<?=$post['id']?>">
+                <?=$post['motif']?>
+              </span>  
+          </td>
+          <td>
+            <div class="button-absence-<?=$post['id']?>">
             <a href="views/delete.php?id=<?=$post['id']?>">
               <button type='button' class='btn btn-sm btn-outline-danger'>suprimer</button>
             </a>
+            <!-- <a href="views/update.php?id=<?=$post['id']?>"> -->
+              <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary ' onclick="update(<?=$post['id']?>)">Modifier</button>
+            <!-- </a> -->
+            </div>
+            <button type='button' name="button-absence-<?=$post['id']?>" value="button-absence-<?=$post['id']?> " id="updateur-<?=$post['id']?>" class="btn btn-sm btn-outline-secondary text-uppercase" style="display:none">valider</button>
           </td>
         </tr>
         <?php endforeach; ?>

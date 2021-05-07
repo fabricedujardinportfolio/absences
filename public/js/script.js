@@ -43,3 +43,24 @@ function set_name(item) {
 	// hide proposition list
 	$('#nameUserListe').hide();	
 }
+  
+function update(data) {		
+	console.log(data); 
+	let fullDate = new Date();console.log(fullDate);
+$(".date_start_reel_"+data).html(`<input type="date" id="dayNow" class="form-control" name="fullDate" 
+>`);
+$(".date_end_reel_"+data).html(`
+	<input type="date" class="form-control" name="date_end">
+		`);
+$(".motif_reel_"+data).html(`
+	<select class="form-select" id="inputGroupSelect01" name="motifs_id">
+		<option selected value="1">Motif...</option>
+		<option value="2">AM</option>
+		<option value="3">AT</option>
+		<option value="4">CP</option>
+	</select>` );
+$(".button-absence-"+data).hide();	
+$("#updateur-"+data).show();	
+// $(".button-absence-"+data).html(`
+// 	<button type='button' id="button-absence-" class='btn btn-sm btn-outline-secondary ' onclick="update(`+data[]`)">Modifier</button>`);	 
+}

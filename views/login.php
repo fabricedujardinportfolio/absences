@@ -27,26 +27,36 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 			{
 				if($email==$row["email"]) //check condition user taypable "email" is match from database "email" after continue
 				{
-					if($password==$row["passwords"]) //check condition user taypable "password" is match from database "password" using password_verify() after continue
-					{
-						$_SESSION["user_login"] = $row["id"];	//session name is "user_login"
-                        $_SESSION["loggedIn"] = true;
-						$loginMsg = "Successfully Login...";		//user login success message
-						header("refresh:2; ../index.php");			//refresh 2 second after redirect to "welcome.php" page
-					}
+                    $_SESSION["user_pole"] = $row["pole_service"];
+                    $role = $_SESSION["user_pole"];    
+                    if ($row["pole_service"]=="COM") {
+                        if($password==$row["passwords"]) //check condition user taypable "password" is match from database "password" using password_verify() after continue
+                        {
+                            $_SESSION["user_login"] = $row["id"];
+                            $_SESSION["user_pole"] = $row["pole_service"];
+                            //session name is "user_login"
+                            $_SESSION["loggedIn"] = true;
+                            $loginMsg = "Successfully Login...";		//user login success message
+                            header("refresh:2; ../index.php");			//refresh 2 second after redirect to "welcome.php" page
+                        }
+                        else{                            
+						$errorMsg[]="Mauvais mot de passe";
+                        }
+                    }
+					
 					else
 					{
-						$errorMsg[]="wrong password";
+						$errorMsg[]="Vous n'appartenez pas au bon service";
 					}
 				}
 				else
 				{
-					$errorMsg[]="wrong email";
+					$errorMsg[]="Mauvaise adresse mail";
 				}
 			}
 			else
 			{
-				$errorMsg[]="wrong email";
+				$errorMsg[]="Mauvaise adresse mail";
 			}
 		}
 		catch(PDOException $e)
