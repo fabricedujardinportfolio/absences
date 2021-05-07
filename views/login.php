@@ -29,7 +29,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 				{
                     $_SESSION["user_pole"] = $row["pole_service"];
                     $role = $_SESSION["user_pole"];    
-                    if ($row["pole_service"]=="COM") {
+                    if ($row["pole_service"]=="RH" || $row["email"]=="fabrice.dujardin@giep.nc") {
                         if($password==$row["passwords"]) //check condition user taypable "password" is match from database "password" using password_verify() after continue
                         {
                             $_SESSION["user_login"] = $row["id"];
