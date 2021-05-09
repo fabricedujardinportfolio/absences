@@ -102,7 +102,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
       </div>
     </form>
     <!-- ************Table de récap***************** -->
-<?php 
+    <?php 
   try {                              
     $pole_service = "pole_service";
     $stmt = $conn->prepare('SELECT pole_service, name,first_name,date_start,date_end,motif,absences_absences.id FROM `absences_absences`,`agents`,`absences_arguments` WHERE  motifs_id=absences_arguments.id AND agents_id=agents.id ORDER BY pole_service=? AND name');
@@ -114,59 +114,59 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
 ?>
     <div class="pole col-3 border border-1 border-dark mt-5 mb-1 text-center" style="background-color:#CFE2FF">
       <h3>Agents Absents</h3>
-    </div>
-    <table class="table table-primary table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Pôle</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Prénom</th>
-          <th scope="col">Date de Début</th>
-          <th scope="col">Date de Fin</th>
-          <th scope="col">Motifs</th>
-          <!-- <th scope="col">Statut</th> -->
-          <th scope="col">Action</th>
+    </div>  
 
-        </tr>
-      </thead>
-<?php 
+    <form action="">
+      <div class="col-12 d-flex">
+        <div class="col">Pôle</div>
+        <div class="col">Nom</div>
+        <div class="col">Prénom</div>
+        <div class="col">Date de Début</div>
+        <div class="col"> Date de Fin</div>
+        <div class="col"> Motifs</div>
+        <div class="col">Action</div>
+      </div>
 
-?>
       <?php foreach ($posts as $post): ?>
-      <tbody>
-        <tr>
-          <th scope="row"><?=$post['pole_service']?></th>
-          <td><?=$post['name']?></td>
-          <td><?=$post['first_name']?></td>
-          
-          <td>
-              <span class="date_start_reel_<?=$post['id']?>">
-                <?=$post['date_start']?>
-              </span>
-              <!-- <input type="text" id="date_start_"> -->
-          </td>
-          <td>
-              <span class="date_end_reel_<?=$post['id']?>">
-                <?=$post['date_end']?>
-              </span>              
-          </td>
-          <td>
-              <span class="motif_reel_<?=$post['id']?>">
-                <?=$post['motif']?>
-              </span>  
-          </td>
-          <td>
-            <div class="button-absence-<?=$post['id']?>">
+
+      <div class="col-12 d-flex">
+        <div class="col"><?=$post['pole_service']?></div>
+        <div class="col"><?=$post['name']?></div>
+        <div class="col">
+          <?=$post['first_name']?>
+        </div>
+        <div class="col">
+          <span class="date_start_reel_<?=$post['id']?>">
+            <?=$post['date_start']?>
+          </span>
+        </div>
+        <div class="col">
+          <span class="date_end_reel_<?=$post['id']?>">
+            <?=$post['date_end']?>
+          </span>
+        </div>
+        <div class="col">
+          <span class="motif_reel_<?=$post['id']?>">
+            <?=$post['motif']?>
+          </span>
+        </div>
+        <div class="col">
+          <div class="button-absence-<?=$post['id']?>">
             <a href="views/delete.php?id=<?=$post['id']?>">
               <button type='button' class='btn btn-sm btn-outline-danger'>suprimer</button>
             </a>
             <!-- <a href="views/update.php?id=<?=$post['id']?>"> -->
-              <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary ' onclick="update(<?=$post['id']?>)">Modifier</button>
+            <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
+              onclick="update(<?=$post['id']?>)">Modifier</button>
             <!-- </a> -->
-            </div>
-            <button type='button' name="button-absence-<?=$post['id']?>" value="button-absence-<?=$post['id']?> " id="updateur-<?=$post['id']?>" class="btn btn-sm btn-outline-secondary text-uppercase" style="display:none">valider</button>
-          </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
+          </div>
+          <button type='button' name="button-absence-<?=$post['id']?>" value="button-absence-<?=$post['id']?> "
+            id="updateur-<?=$post['id']?>" class="btn btn-sm btn-outline-secondary text-uppercase"
+            style="display:none">valider</button>
+
+        </div>
+      </div>
+      <?php endforeach; ?>
+
+    </form>
     <?php endif;
