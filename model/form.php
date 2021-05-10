@@ -1,4 +1,7 @@
 <?php
+$msg = "";
+$msgupdate = "";
+if(isset($_POST['button-absence']))
       try {
         $msgupdate="";
       if (!empty($_POST)) {
@@ -19,27 +22,32 @@
         // Update posts table
         $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ?, motifs_id = ? WHERE id = ?');
         $stmt->execute([$dateStart, $dateEnd, $motif, $id]);
-        $teste = header('refresh:2; index.php');
+        // $teste = header('refresh:2; index.php');
         $msgupdate = '<spans class="alert alert-success" role="alert">Mis à jour avec succés!</span>';
+        header("refresh:2; index.php");
       }
         else{
-          // echo "test";
+        //  test
         }
       } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
+      }
+      else {
+        // echo"";
       }
 ?>
 <?php 
 if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     ?>
 <?php
-        header("refresh:2; views/login.php");
+        header("refresh:0; views/login.php");
     else: 
 ?>
 
   <div class="container">
     <!-- ************Formulaire de saisi***************** -->
     <?php
+    if(isset($_POST['valider']))
  try {        
     $msg = '';
         $Name = isset($_POST['nameUser']) ? $_POST['nameUser'] : '';
@@ -57,10 +65,14 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     Créé avec succès!
   </div>';
 }catch(PDOException $e) {
-    // echo "Error: " . $e->getMessage();
+    echo "Error: " . $e->getMessage();
 }
+else {
+  // echo"test";
+}
+
 ?>
-    <form class="container bg-light p-5" action="index.php" method="post">
+    <form class="container bg-light p-5" id="form1" action="index.php" method="post">
 
       <div class="title row justify-content-center text-center text-uppercase mb-5">
         <div class="col-md-6">
@@ -123,7 +135,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
       </div>
       <div class="row">
         <div class="col-md-12 mt-3 text-center">
-          <button type="submit" class="btn btn-primary">VALIDER</button>
+          <button type="submit" name="valider" class="btn btn-primary">VALIDER</button>
         </div>
       </div>
     </form>
@@ -155,7 +167,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
       </div>    
       
       <?php foreach ($posts as $post): ?>
-        <form action="index.php" class="border" method="POST">
+        <form action="" class="border" method="POST">
       <div class="col-12 d-flex pt-2 pb-1">
         <div class="col ps-1"><?=$post['pole_service']?></div>
         <div class="col"><?=$post['name']?></div>
