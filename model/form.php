@@ -62,7 +62,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         $stmt = $conn->prepare('INSERT INTO `absences_absences` VALUES ("",?, ?, ?, ?)');
         $stmt->execute([$name_int, $Motifs_id, $Date_start_date, $Date_end_date]);  
     $msg = '<div class="alert alert-success" role="alert">
-    Créé avec succès!
+    Créer avec succès!
   </div>';
   header("refresh:2; index.php");
 }catch(PDOException $e) {
@@ -111,7 +111,7 @@ else {
             </div>
             <div class="col-md-8">
               <input type="date" id="dayNow" class="form-control" name="date_start"
-                value="<?php echo date('Y-m-d' ); ?>">
+                value="<?php echo date('Y-m-d' ); ?>" require>
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@ else {
               <label for="inputLastName" class="form-label m-0">DATE DE FIN</label>
             </div>
             <div class="col-md-8">
-              <input type="date" class="form-control" name="date_end">
+              <input type="date" class="form-control" name="date_end" require>
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@ else {
           <div class="input-group mb-3">
             <select class="form-select" id="inputGroupSelect01" name="motifs_id">
               <option selected value="1">Motif...</option>
-              <option value="2">AM</option>
+              <option value="2" >AM</option>
               <option value="3">AT</option>
               <option value="4">CP</option>
             </select>
@@ -202,7 +202,7 @@ else {
             </a>
             <!-- <a href="views/update.php?id=<?=$post['id']?>"> -->
             <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
-              onclick="update(<?=$post['id']?>)">Modifier</button>
+              onclick="update('<?=$post['id']?>','<?=$post['motif']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
             <!-- </a> -->
           </div>
           <button type='submit' name="button-absence" value="<?=$post['id']?> "

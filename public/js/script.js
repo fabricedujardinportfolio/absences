@@ -44,23 +44,42 @@ function set_name(item) {
 	$('#nameUserListe').hide();	
 }
   
-function update(data) {		
-	console.log(data); 
-	let fullDate = new Date();console.log(fullDate);
-$(".date_start_reel_"+data).html(`<input type="date" id="dayNow" class="form-control" name="date_start" 
+function update(dataid,datamotif,datastart,dataend) {		
+	console.log(dataid); 
+	console.log(datamotif); 
+	console.log(datastart); 
+	console.log(dataend); 
+	// let datamotifprint = datamotif;
+	// echo (datamotifprint);
+	if (typeof dataid === "undefined") {
+		console.log("id undefined"); 
+	}
+	if (typeof datamotif === "undefined") {
+		console.log("datamotif undefined"); 
+	}
+	if (typeof datastart === "undefined") {
+		console.log("datastart undefined"); 
+	}
+	if (typeof dataend === "undefined") {
+		console.log("dataend undefined"); 
+	}
+$(".date_start_reel_"+dataid).html(`<input  placeholder='`+datastart+`' type="text"  onfocus="(this.type='date')"
+onblur="(this.type='text')" value="`+datastart+`" id="dayNow" class="form-control" name="date_start" 
 >`);
-$(".date_end_reel_"+data).html(`
-	<input type="date" class="form-control" name="date_end">
+$(".date_end_reel_"+dataid).html(`
+	<input placeholder='`+dataend+`' type="text" value="`+dataend+`"  onfocus="(this.type='date')"
+	onblur="(this.type='text')" class="form-control" name="date_end" >
 		`);
-$(".motif_reel_"+data).html(`
-	<select class="form-select" id="inputGroupSelect01" name="motif">
-		<option selected value="1">Motif...</option>
+$(".motif_reel_"+dataid).html(`
+	<select class="form-select" id="inputGroupSelect01" name="motif" type="text"  value="`+datamotif+`" placeholder='`+datamotif+`' onfocus="(this.type='select')"
+	onblur="(this.type='text')">
+		<option selected value="1">Ancien motif: `+datamotif+`</option>
 		<option value="2">AM</option>
 		<option value="3">AT</option>
 		<option value="4">CP</option>
 	</select>` );
-$(".button-absence-"+data).hide();	
-$("#updateur-"+data).show();	
+$(".button-absence-"+dataid).hide();	
+$("#updateur-"+dataid).show();	
 // $(".button-absence-"+data).html(`
 // 	<button type='button' id="button-absence-" class='btn btn-sm btn-outline-secondary ' onclick="update(`+data[]`)">Modifier</button>`);	 
 }
