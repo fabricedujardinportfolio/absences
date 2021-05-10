@@ -24,12 +24,13 @@ $pdofn = connect();
 	$queryfn = $pdofn->prepare($sqlfn);
 	$queryfn->bindParam(':keyword', $keyword, PDO::PARAM_STR);
 	$queryfn->execute();
-	$listfn = $queryfn->fetchAll();
-	foreach ($listfn as $rsfn) {
+	$listfn = $queryfn->fetchAll();	
+	foreach ($listfn as $rsfn) {		
 		// put in bold the written text
 		$first_name = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rsfn['first_name']." ".$rsfn['name']);
 		// add new option
 		echo '<li class="border bg-white" style="list-style-type: none;" onclick="set_item(\''.$rsfn['first_name']." ".$rsfn['name'].'\');set_name(\''.$rsfn['id'].'\')">'.$first_name.'</li>';
 	}
+// $retVal = ($keyword) ? ':keyword' : '' ;
 
 ?>

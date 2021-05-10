@@ -4,27 +4,31 @@ function autocomplet() {
 	$.ajax({
 		url: 'classes/ajax_refresh.php',
 		type: 'POST',
-		data: {keyword:keyword},
-		success:function(data){
+		data: {keyword:keyword},	
+		success:function(data){			
 			$('#name_list').show();
 			$('#name_list').html(data);
 		}
 	});
 }
-function autocompletfirst_name() {
-	var keywordfn = $('.first_name').val();
-	$.ajax({
-		url: 'classes/ajax_refreshfn.php',
-		type: 'POST',
-		data: {keywordfn:keywordfn},
-		success:function(data){
-			$('.first_name_list').show();
-			$('.first_name_list').html(data);
-		}
-	});
-}
-$("#btn1").click(function(){
-  });
+// function autocompletfirst_name() {
+// 	var keywordfn = $('.first_name').val();
+// 	$.ajax({
+// 		url: 'classes/ajax_refreshfn.php',
+// 		type: 'POST',
+// 		data: {keywordfn:keywordfn},
+// 		success:function(data){
+// 			if (data==true) {				
+// 			$('.first_name_list').show();
+// 			$('.first_name_list').html(data);
+// 			}else{
+// 				alert ("aucun nom");
+// 			}
+// 		}
+// 	});
+// }
+// $("#btn1").click(function(){
+//   });
 
 // set_item : this function will be executed when we select an item
 function set_item(item) {
@@ -36,6 +40,8 @@ function set_item(item) {
 	$('#first_name').val(item);
 	// hide proposition list
 	$('#first_name_list').hide();	
+	$('.showSubmit').show(item);
+	// hide proposition list
 }
 function set_name(item) {	
 	// change input value

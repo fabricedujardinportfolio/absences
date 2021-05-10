@@ -9,16 +9,11 @@ if(isset($_POST['button-absence']))
         $dateStart="";
         $dateEnd="";
         $motif="";
-        // var_dump($_POST);
         $id = $_POST['button-absence'] ;
-        // var_dump($id);     
         $dateStart = $_POST['date_start'];
-        // var_dump($dateStart);
         $dateEnd = $_POST['date_end'];
-        // var_dump($dateEnd);
         $motif = $_POST['motif'];
         $motif_int = (int)$motif;
-        // var_dump($motif_int);
         // Update posts table
         $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ?, motifs_id = ? WHERE id = ?');
         $stmt->execute([$dateStart, $dateEnd, $motif, $id]);
@@ -102,7 +97,7 @@ else {
           <!-- <span><ul id="first_name_list"></ul></span> -->
         </div>
       </div>
-
+<div class="col-12 showSubmit" style="display:none">
       <div class="col-md-12 d-flex text-center my-5">
         <div class="col-md-6">
           <div class="col-md-12 d-flex align-items-center">
@@ -144,12 +139,13 @@ else {
           <button type="submit" name="valider" class="btn btn-primary">VALIDER</button>
         </div>
       </div>
+      </div>
     </form>
     <!-- ************Table de récap***************** -->
     <?php 
   try {                              
     $pole_service = "pole_service";
-    $stmt = $conn->prepare('SELECT pole_service, name,first_name,date_start,date_end,motif,absences_absences.id FROM `absences_absences`,`agents`,`absences_arguments` WHERE  motifs_id=absences_arguments.id AND agents_id=agents.id ORDER BY pole_service=? AND name');
+    $stmt = $conn->prepare('SELECT pole_service, name,first_name,date_start,date_end,motif,absences_absences.id FROM `absences_absences`,`agents`,`absences_arguments` WHERE  motifs_id=absences_arguments.id AND agents_id=agents.id ORDER BY pole_service=? , name');
     $stmt->execute([$pole_service]);
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e) {
