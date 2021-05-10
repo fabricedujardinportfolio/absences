@@ -1,14 +1,11 @@
 <?php require '../classes/database.php';?>
 <?php include("../model/header.php");?>
-
 <!-- SCRIPT ICI -->
 
 
 </head>
 <body>
     
-
-
 <?php 
   try {                              
     $pole_service = "pole_service";
@@ -22,9 +19,9 @@
 
 <div class="container">
     
-    <h1 class="col text-center">User page</h1>
-    <div class="pole col-3 border border-1 border-dark mt-5 text-center text-white py-2 rounded-top" style="background-color:#2E4F9B">
-        <h3>Agents Absents</h3>
+    <!-- <h1 class="col text-center">User page</h1> -->
+    <div class="pole col-5 border border-1 border-dark mt-5 text-center text-white py-2 rounded-top" style="background-color:#2E4F9B">
+        <h3>Liste des agents absents du GIEP-NC</h3>
     </div>
 
     <form action="">
