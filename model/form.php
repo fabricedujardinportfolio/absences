@@ -64,6 +64,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     $msg = '<div class="alert alert-success" role="alert">
     Créé avec succès!
   </div>';
+  header("refresh:2; index.php");
 }catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
