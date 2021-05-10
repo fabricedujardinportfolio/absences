@@ -66,7 +66,12 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
   </div>';
   header("refresh:2; index.php");
 }catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
+  echo "
+  <div class='alert alert-warning text-center' role='alert'>
+  <strong>Utiliser un des utilisateurs que vous proposent l'auto-complétions du tableau.</strong>
+  </div>
+  " ;
+    // echo "Error: " . $e->getMessage();
 }
 else {
   // echo"test";
