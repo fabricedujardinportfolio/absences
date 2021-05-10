@@ -1,3 +1,34 @@
+<?php
+      try {
+        $msgupdate="";
+      if (!empty($_POST)) {
+        $id="";
+        $dateStart="";
+        $dateEnd="";
+        $motif="";
+        // var_dump($_POST);
+        $id = $_POST['button-absence'] ;
+        // var_dump($id);     
+        $dateStart = $_POST['date_start'];
+        // var_dump($dateStart);
+        $dateEnd = $_POST['date_end'];
+        // var_dump($dateEnd);
+        $motif = $_POST['motif'];
+        $motif_int = (int)$motif;
+        // var_dump($motif_int);
+        // Update posts table
+        $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ?, motifs_id = ? WHERE id = ?');
+        $stmt->execute([$dateStart, $dateEnd, $motif, $id]);
+        $teste = header('refresh:2; index.php');
+        $msgupdate = '<spans class="alert alert-success" role="alert">Mis à jour avec succés!</span>';
+      }
+        else{
+          // echo "test";
+        }
+      } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+      }
+?>
 <?php 
 if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     ?>
@@ -5,12 +36,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         header("refresh:2; views/login.php");
     else: 
 ?>
-<!-- SCRIPT ICI -->
-<script type="text/javascript" src="public/js/jquery.min.js"></script>
-<script type="text/javascript" src="public/js/script.js"></script>
-</head>
 
-<body>
   <div class="container">
     <!-- ************Formulaire de saisi***************** -->
     <?php
@@ -112,25 +138,26 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
       echo "Error: " . $e->getMessage();
     }
 ?>
-    <div class="pole col-3 border border-1 border-dark mt-5 mb-1 text-center" style="background-color:#CFE2FF">
-      <h3>Agents Absents</h3>
+<?php if ($msgupdate): ?>
+          <p><?=$msgupdate?></p>
+          <?php endif; ?>
+    <div class="pole col-3 border border-1 border-dark mt-5 mb-0 text-center" style="background-color:#2e4f9b;color:white;">
+      <h3 >Agents Absents</h3>
     </div>  
-
-    <form action="">
-      <div class="col-12 d-flex">
+    <div class="col-12 d-flex p-2 text-uppercase " style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
         <div class="col">Pôle</div>
         <div class="col">Nom</div>
         <div class="col">Prénom</div>
         <div class="col">Date de Début</div>
         <div class="col"> Date de Fin</div>
         <div class="col"> Motifs</div>
-        <div class="col">Action</div>
-      </div>
-
+        <div class="col text-center">Action</div>
+      </div>    
+      
       <?php foreach ($posts as $post): ?>
-
-      <div class="col-12 d-flex">
-        <div class="col"><?=$post['pole_service']?></div>
+        <form action="index.php" class="border" method="POST">
+      <div class="col-12 d-flex pt-2 pb-1">
+        <div class="col ps-1"><?=$post['pole_service']?></div>
         <div class="col"><?=$post['name']?></div>
         <div class="col">
           <?=$post['first_name']?>
@@ -150,7 +177,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
             <?=$post['motif']?>
           </span>
         </div>
-        <div class="col">
+        <div class="col text-center">
           <div class="button-absence-<?=$post['id']?>">
             <a href="views/delete.php?id=<?=$post['id']?>">
               <button type='button' class='btn btn-sm btn-outline-danger'>suprimer</button>
@@ -160,13 +187,12 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
               onclick="update(<?=$post['id']?>)">Modifier</button>
             <!-- </a> -->
           </div>
-          <button type='button' name="button-absence-<?=$post['id']?>" value="button-absence-<?=$post['id']?> "
+          <button type='submit' name="button-absence" value="<?=$post['id']?> "
             id="updateur-<?=$post['id']?>" class="btn btn-sm btn-outline-secondary text-uppercase"
-            style="display:none">valider</button>
-
+            style="display:none">valider</button>            
         </div>
       </div>
+    </form>
       <?php endforeach; ?>
 
-    </form>
     <?php endif;

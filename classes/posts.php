@@ -17,15 +17,19 @@ class Post extends Databases
         return $result;
     }
     public function setUpdate(){  
-        $Categories_id = isset($_POST['categories_id']) ? $_POST['categories_id'] : '';
-        $Categories_id_int = (int)$Categories_id;        
-        $Users_id = $_POST['userId'];
-        $Users_id_int = (int)$Users_id; 
-        $date = date("Y-m-d H:i:s");
-        $sql = "UPDATE posts SET title = ?, content = ?, Users_id = ?, Categories_id = ?, date = ? WHERE id = ?";
-        $result =  $this->getConnection()->prepare($sql);
-        $result->execute([$_POST["title"],$_POST["content"],$Users_id_int,$Categories_id_int,$date,$_POST["id"]]);
-        return $result;
+        // $_GET['id'],$_GET['date_start'],$_GET['date_end'],$_GET['date_start'];
+        // $id = $_GET['id'] ;
+        // var_dump($id);     
+        // $dateStart = $_GET['date_start'];
+        // var_dump($dateStart);
+        // $dateEnd = $_GET['date_end'];
+        // var_dump($dateEnd);
+        // $motif = $_GET['motif'];
+        // var_dump($motif);
+        // $sql = "UPDATE posts SET title = ?, content = ?, Users_id = ?, Categories_id = ?, date = ? WHERE id = ?";
+        // $result =  $this->getConnection()->prepare($sql);
+        // $result->execute([$_POST["title"],$_POST["content"],$Users_id_int,$Categories_id_int,$date,$_POST["id"]]);
+        // return $result;
                
     }
     public function setDelete(){   
