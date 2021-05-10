@@ -29,7 +29,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 				{
                     $_SESSION["user_pole"] = $row["pole_service"];
                     $role = $_SESSION["user_pole"];    
-                    if ($row["pole_service"]=="RH" || $row["email"]==('fabrice.dujardin@giep.nc'||'saiqe.hne@giep.nc')) {
+                    if ($row["connexion_absences"]=="1" && $row["active"]=="1") {
                         if($password==$row["passwords"]) //check condition user taypable "password" is match from database "password" using password_verify() after continue
                         {
                             $_SESSION["user_login"] = $row["id"];
@@ -46,7 +46,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 					
 					else
 					{
-						$errorMsg[]="Vous n'appartenez pas au bon service";
+						$errorMsg[]="Vous n'avez pas les droits";
 					}
 				}
 				else
