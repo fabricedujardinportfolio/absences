@@ -111,7 +111,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                     <input type="password" class="form-control" id="Passwordid" placeholder="Entrer votre mots de pass" name="passwords">
                 </div>
                 <div class="text-center  mb-3">
-                <button class="btn btn-lg btn btn-primary btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier">S'identifier</button>
+                <button class="btn btn-lg btn btn-primary btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier" style="background-color:#2e4f9b;color:white;">S'identifier</button>
                 </div> 
             </form>
 <?php include("../model/footer.php");?>
