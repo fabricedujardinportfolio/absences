@@ -11,8 +11,8 @@ $sql = "SELECT * FROM agents WHERE name LIKE (:keyword) OR first_name LIKE (:key
 $query = $pdo->prepare($sql);
 $query->bindParam(':keyword', $keyword, PDO::PARAM_STR);
 $query->execute();
-
-if ($query->rowCount() == 0) {
+$queryrow = $query->rowCount();
+if ($queryrow == 0  ) {	
 	echo"aucune données";
 }else{
 	$list = $query->fetchAll();
