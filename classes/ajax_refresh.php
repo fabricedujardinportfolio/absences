@@ -12,8 +12,10 @@ $query = $pdo->prepare($sql);
 $query->bindParam(':keyword', $keyword, PDO::PARAM_STR);
 $query->execute();
 $queryrow = $query->rowCount();
-if ($queryrow == 0 ||  $keyword === '%%') {	
+if ($queryrow == 0 ) {	
 	echo"aucune données";
+}elseif ($keyword === '%%') {	
+	echo"";
 }else{
 	$list = $query->fetchAll();
 	foreach ($list as $rs) {
