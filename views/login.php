@@ -40,7 +40,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                             header("refresh:2; ../index.php");			//refresh 2 second after redirect to "welcome.php" page
                         }
                         else{                            
-						$errorMsg[]="Mauvais mot de passe";
+						$errorMsg[]="Le mot de passe n'existe pas";
                         }
                     }
 					
@@ -51,12 +51,12 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 				}
 				else
 				{
-					$errorMsg[]="Mauvaise adresse mail";
+					$errorMsg[]="Adresse e-mail invalide";
 				}
 			}
 			else
 			{
-				$errorMsg[]="Mauvaise adresse mail";
+				$errorMsg[]="Merci de saisir votre adresse e-mail";
 			}
 		}
 		catch(PDOException $e)
