@@ -90,8 +90,8 @@ else {
           <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name"
             name="name" onkeyup="autocomplet()" autocomplete="off">
           <span>
-            <ul class="text-success fst-italic ps-0 overflow-auto h-50" id="name_list"></ul>
-            <ul class="text-success fst-italic ps-0 overflow-auto h-50" id="nameUserListe"></ul>
+            <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start" id="name_list"></ul>
+            <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start" id="nameUserListe"></ul>
           </span>
           <!-- <span><ul id="first_name_list"></ul></span> -->
         </div>
