@@ -7,12 +7,12 @@ function connect() {
 
 $pdo = connect();
 $keyword = '%'.$_POST['keyword'].'%';
-$sql = "SELECT * FROM agents WHERE name LIKE (:keyword) OR first_name LIKE (:keyword) ORDER BY name ASC LIMIT 0, 10";
+$sql = "SELECT * FROM agents WHERE name LIKE (:keyword) OR first_name LIKE (:keyword) ORDER BY name ASC ";
 $query = $pdo->prepare($sql);
 $query->bindParam(':keyword', $keyword, PDO::PARAM_STR);
 $query->execute();
 $queryrow = $query->rowCount();
-if ($queryrow == 0  ) {	
+if ($queryrow == 0 ||  $keyword === '%%') {	
 	echo"aucune données";
 }else{
 	$list = $query->fetchAll();
