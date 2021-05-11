@@ -73,10 +73,10 @@ else {
 }
 
 ?>
-    <form class="container bg-light p-5" id="form1" action="index.php" method="post">
-
-      <div class="title row justify-content-center text-center text-uppercase mb-5">
-        <div class="col-md-6">
+    <form class="container d-flex" id="form1" action="index.php" method="post">
+      <div class="col-8 formulaire m-auto">
+      <div class="title row justify-content-center text-center text-uppercase mb-3">
+        <div class="col-md-6 pt-5">
           <h2>Formulaire de Saisie</h2>
           <?php if ($msg): ?>
           <p><?=$msg?></p>
@@ -84,7 +84,7 @@ else {
         </div>
       </div>
       <div class="col-md-12 d-flex justify-content-center text-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <span>
             <input type="text" id="nameUser" name="nameUser" style="display:none;">
           </span>
@@ -98,11 +98,11 @@ else {
         </div>
       </div>
 <div class="col-12 showSubmit" style="display:none">
-      <div class="col-md-12 d-flex text-center my-5">
-        <div class="col-md-6">
+      <div class="row justify-content-center text-center my-1">
+        <div class="col-md-4">
           <div class="col-md-12 d-flex align-items-center">
             <div class="col-md-4">
-              <label for="inputLastName" class="form-label m-0">DATE DE DÉBUT</label>
+              <label for="inputLastName" class="form-label m-0 fs-6">DATE DE DÉBUT</label>
             </div>
             <div class="col-md-8">
               <input type="date" id="dayNow" class="form-control" name="date_start"
@@ -110,7 +110,9 @@ else {
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+      </div>
+      <div class="row justify-content-center text-center my-1">
+        <div class="col-md-4">
           <div class="col-md-12 d-flex align-items-center ">
             <div class="col-md-4 ">
               <label for="inputLastName" class="form-label m-0">DATE DE FIN</label>
@@ -123,7 +125,7 @@ else {
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-md-6 justify-content-center">
+        <div class="col-md-4 justify-content-center">
           <div class="input-group mb-3">
             <select class="form-select" id="inputGroupSelect01" name="motifs_id">
               <option selected value="1">Motif...</option>
@@ -135,11 +137,12 @@ else {
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 mt-3 text-center">
+        <div class="col-md-12 mt-3 text-center pb-5">
           <button type="submit" name="valider" class="btn btn-primary">VALIDER</button>
         </div>
       </div>
-      </div>
+    </div>
+    </div>
     </form>
     <!-- ************Table de récap***************** -->
     <?php 
