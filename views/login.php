@@ -11,10 +11,10 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 	$email		= strip_tags($_REQUEST["email"]);	//textbox name "txt_username_email"
 	$password	= strip_tags($_REQUEST["passwords"]);		//textbox name "txt_password"
 	if(empty($email)){
-		$errorMsg[]="please enter your email";	//check "email" textbox not empty
+		$errorMsg[]="Veuillez entrer une adresse email valide";	//check "email" textbox not empty
 	}
 	else if(empty($password)){
-		$errorMsg[]="please enter your password";	//check "passowrd" textbox not empty
+		$errorMsg[]="Veuillez entrer un mot de passe";	//check "passowrd" textbox not empty
 	}
 	else
 	{
@@ -71,7 +71,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 <body>
 <div class="container">
     <div class="container d-flex mt-4 h-mini-90">
-        <div class="col-lg-12">
+        <div class="col-lg-6 m-auto">
             <?php
             if(isset($errorMsg))
             {
@@ -99,7 +99,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                     <img  src="../public/images/logo.png" alt="logo du giep" width="110" height="72">
                 </div>
                 <div class="text-center">
-                <h1><strong class="text-uppercase">Authentification</strong></a></h1>
+                <h1><strong class="text-uppercase">Saisie des absents</strong></a></h1>
                 </div>
                 <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter<hr></h2>
                 <div class="form-group">
