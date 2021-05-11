@@ -51,12 +51,12 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 				}
 				else
 				{
-					$errorMsg[]="Adresse e-mail invalide";
+					$errorMsg[]="Adresse email invalide";
 				}
 			}
 			else
 			{
-				$errorMsg[]="Merci de saisir votre adresse e-mail";
+				$errorMsg[]="Merci de saisir votre adresse email";
 			}
 		}
 		catch(PDOException $e)
