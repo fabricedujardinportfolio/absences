@@ -88,7 +88,7 @@ else {
           <span>
             <input type="text" id="nameUser" name="nameUser" style="display:none;">
           </span>
-          <input type="text" class="form-control" placeholder="Nom" aria-label="name" id="name" name="name" autocomplete="off"
+          <input type="text" class="form-control" placeholder="Nom" aria-label="name" id="name" name="name"
             onkeyup="autocomplet()">
           <span>
             <ul class="text-success fst-italic ps-0 overflow-auto h-50" id="name_list"></ul>
@@ -138,7 +138,7 @@ else {
       </div>
       <div class="row">
         <div class="col-md-12 mt-3 text-center pb-5">
-          <button type="submit" name="valider" class="btn btn-primary">VALIDER</button>
+          <button type="submit" name="valider" class="btn btn-primary" style="background-color:#2e4f9b">VALIDER</button>
         </div>
       </div>
     </div>
