@@ -12,11 +12,11 @@ if(isset($_POST['button-absence']))
         $id = $_POST['button-absence'] ;
         $dateStart = $_POST['date_start'];
         $dateEnd = $_POST['date_end'];
-        $motif = $_POST['motif'];
+        // $motif = $_POST['motif'];
         $motif_int = (int)$motif;
         // Update posts table
-        $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ?, motifs_id = ? WHERE id = ?');
-        $stmt->execute([$dateStart, $dateEnd, $motif, $id]);
+        $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ? WHERE id = ?');
+        $stmt->execute([$dateStart, $dateEnd, $id]);
         // $teste = header('refresh:2; index.php');
         $msgupdate = '<spans class="alert alert-success" role="alert">Mis à jour avec succés!</span>';
         header("refresh:2; index.php");
@@ -90,8 +90,7 @@ else {
           <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name"
             name="name" onkeyup="autocomplet()" autocomplete="off">
           <span>
-            <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start" id="name_list"></ul>
-            <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start" id="nameUserListe"></ul>
+            <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start" style="cursor: pointer" id="name_list"></ul>
           </span>
           <!-- <span><ul id="first_name_list"></ul></span> -->
         </div>

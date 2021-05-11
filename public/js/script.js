@@ -81,14 +81,13 @@ $(".date_end_reel_"+dataid).html(`
 	<input placeholder='`+dataend+`' type="text" value="`+dataend+`"  onfocus="(this.type='date')"
 	onblur="(this.type='text')" class="form-control" name="date_end" >
 		`);
-$(".motif_reel_"+dataid).html(`
-	<select class="form-select" id="inputGroupSelect01" name="motif" type="text"  value="`+datamotif+`" placeholder='`+datamotif+`' onfocus="(this.type='select')"
-	onblur="(this.type='text')">
-		<option selected value="1">Ancien motif: `+datamotif+`</option>
-		<option value="2">AM</option>
-		<option value="3">AT</option>
-		<option value="4">CP</option>
-	</select>` );
+
 $(".button-absence-"+dataid).hide();	
 $("#updateur-"+dataid).show();	
 }
+// *****Fonction pour choix des motifs****
+// $(".motif_reel_"+dataid).html(`
+// 	<select class="form-select" id="inputGroupSelect01" name="motif" type="text"  value="`+datamotif+`" placeholder='`+datamotif+`' 
+// 	onblur="(this.type='text')">
+// 		<option selected value="1">Ancien motif: `+datamotif+`</option>		
+// 	</select>` );
