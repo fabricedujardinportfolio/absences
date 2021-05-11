@@ -42,6 +42,11 @@ function set_item(item) {
 	$('#first_name_list').hide();	
 	$('.showSubmit').show(item);
 	// hide proposition list
+	console.log(item);
+	if (item == "") {
+		alert('Aucune valeurs');
+		
+	}
 }
 function set_name(item) {	
 	// change input value
@@ -86,6 +91,4 @@ $(".motif_reel_"+dataid).html(`
 	</select>` );
 $(".button-absence-"+dataid).hide();	
 $("#updateur-"+dataid).show();	
-// $(".button-absence-"+data).html(`
-// 	<button type='button' id="button-absence-" class='btn btn-sm btn-outline-secondary ' onclick="update(`+data[]`)">Modifier</button>`);	 
 }
