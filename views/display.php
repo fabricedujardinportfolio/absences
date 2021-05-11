@@ -9,7 +9,7 @@
 <?php 
   try {                              
     $pole_service = "pole_service";
-    $stmt = $conn->prepare('SELECT pole_service, absences_absences.id, name,first_name,date_start,date_end FROM `absences_absences`,`agents` WHERE agents_id=agents.id ORDER BY pole_service=? AND name');
+    $stmt = $conn->prepare('SELECT pole_service, absences_absences.id, name,first_name,date_start,date_end FROM `absences_absences`,`agents` WHERE agents_id=agents.id ORDER BY pole_service=? , name');
     $stmt->execute([$pole_service]);
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e) {
