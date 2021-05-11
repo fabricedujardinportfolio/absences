@@ -89,7 +89,7 @@ else {
             <input type="text" id="nameUser" name="nameUser" style="display:none;">
           </span>
           <input type="text" class="form-control" placeholder="Nom" aria-label="name" id="name" name="name"
-            onkeyup="autocomplet()">
+            onkeyup="autocomplet()" autocomplete="off">
           <span>
             <ul class="text-success fst-italic ps-0 overflow-auto h-50" id="name_list"></ul>
             <ul class="text-success fst-italic ps-0 overflow-auto h-50" id="nameUserListe"></ul>
