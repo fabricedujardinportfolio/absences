@@ -11,7 +11,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 	$email		= strip_tags($_REQUEST["email"]);	//textbox name "txt_username_email"
 	$password	= strip_tags($_REQUEST["passwords"]);		//textbox name "txt_password"
 	if(empty($email)){
-		$errorMsg[]="Veuillez entrer une adresse email valide";	//check "email" textbox not empty
+		$errorMsg[]="Merci de saisir votre adresse email";	//check "email" textbox not empty
 	}
 	else if(empty($password)){
 		$errorMsg[]="Veuillez entrer un mot de passe";	//check "passowrd" textbox not empty
@@ -56,7 +56,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 			}
 			else
 			{
-				$errorMsg[]="Merci de saisir votre adresse email";
+				$errorMsg[]="Veuillez entrer une adresse email valide ";
 			}
 		}
 		catch(PDOException $e)
