@@ -77,7 +77,6 @@ else {
       <div class="col-8 formulaire m-auto">
       <div class="title row justify-content-center text-center text-uppercase mb-3">
         <div class="col-md-6 pt-5">
-          <h2>Formulaire de Saisie</h2>
           <?php if ($msg): ?>
           <p><?=$msg?></p>
           <?php endif; ?>
