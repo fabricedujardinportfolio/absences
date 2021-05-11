@@ -88,7 +88,7 @@ else {
           <span>
             <input type="text" id="nameUser" name="nameUser" style="display:none;">
           </span>
-          <input type="text" class="form-control" placeholder="Nom" aria-label="name" id="name" name="name"
+          <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name" name="name"
             onkeyup="autocomplet()" autocomplete="off">
           <span>
             <ul class="text-success fst-italic ps-0 overflow-auto h-50" id="name_list"></ul>
@@ -128,10 +128,7 @@ else {
         <div class="col-md-4 justify-content-center">
           <div class="input-group mb-3">
             <select class="form-select" id="inputGroupSelect01" name="motifs_id">
-              <option selected value="1">Motif...</option>
-              <option value="2" >AM</option>
-              <option value="3">AT</option>
-              <option value="4">CP</option>
+              <option selected value="1">Motif...</option>           
             </select>
           </div>
         </div>
@@ -197,7 +194,7 @@ else {
         <div class="col text-center">
           <div class="button-absence-<?=$post['id']?>">
             <a href="views/delete.php?id=<?=$post['id']?>">
-              <button type='button' class='btn btn-sm btn-outline-danger'>suprimer</button>
+              <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
             </a>
             <!-- <a href="views/update.php?id=<?=$post['id']?>"> -->
             <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
