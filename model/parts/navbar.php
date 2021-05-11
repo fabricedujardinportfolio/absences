@@ -27,7 +27,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         <span class="fs-4">GIEP-NC ABSENCES</span>
     </a>
     <ul class="nav nav-pills">
-        <li class="nav-item"><a href="http://intranet/" class="nav-link active">Intranet</a></li>
+        <li class="nav-item"><a href="http://intranet_dev/liste-des-agents-absents-du-giep-nc/" class="nav-link active">Intranet</a></li>
         <li class="nav-item"><a href="<?php echo $logout_path; ?>" class="nav-link text-uppercase">Déconnexion</a></li>
     </ul>
 </header>
