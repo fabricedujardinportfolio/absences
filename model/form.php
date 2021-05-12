@@ -73,74 +73,67 @@ else {
 }
 
 ?>
-  <form class="container d-flex" id="form1" action="index.php" method="post">
-    <div class="col-10 formulaire m-auto">
-      <div class="title row justify-content-center text-center text-uppercase mb-3">
+<form class="container " id="form1" action="index.php" method="post">
+    <div class="col-6 formulaire m-auto ">
+      <div class="title col-md-12 text-center text-uppercase mb-3">
         <div class="col-md-6 pt-5">
-          <?php if ($msg): ?>
-          <p><?=$msg?></p>
-          <?php endif; ?>
-        </div>
+                  </div>
       </div>
-      <div class="col-md-12 d-flex justify-content-center text-center">
-        <div class="col-md-6">
+      <div class="col-md-12   text-center">
+        <div class="col-md-12">
           <span>
             <input type="text" id="nameUser" name="nameUser" style="display:none;">
           </span>
-          <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name"
-            name="name" onkeyup="autocomplet()" autocomplete="off">
+          <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name" name="name" onkeyup="autocomplet()" autocomplete="off">
           <span>
-            <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start" style="cursor: pointer" id="name_list"></ul>
+            <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start" style="cursor: pointer; display: none;" id="name_list"><li class="border bg-white" style="list-style-type: none;" onclick="set_item('DUJARDIN Fabrice');set_name('3')">DUJARDIN Fabrice</li> <li class="border bg-white" style="list-style-type: none;" onclick="set_item('RIGAUD Florian');set_name('4')">RIGAUD Florian</li> </ul>
           </span>
           <!-- <span><ul id="first_name_list"></ul></span> -->
         </div>
       </div>
-      <div class="col-12 showSubmit" style="display:none">
-        <div class="row justify-content-center text-center my-1">
-          <div class="col-md-6">
-            <div class="col-md-12 d-flex align-items-center">
+      <!-- " -->
+      <div class="col-12 showSubmit" style="">
+        <div class="text-center my-1">
+          <div class="col-md-12">
+            <div class="col-md-12  align-items-center d-md-flex">
               <div class="col-md-3">
                 <label for="inputLastName" class="form-label m-0 fs-6">DATE DE DÉBUT</label>
               </div>
               <div class="col-md-9">
-                <input type="date" id="dayNow" class="form-control" name="date_start"
-                  value="<?php echo date('Y-m-d' ); ?>" require>
+                <input type="date" id="dayNow" class="form-control" name="date_start" value="2021-05-12" require="">
               </div>
             </div>
           </div>
         </div>
-        <div class="row justify-content-center text-center my-1">
-          <div class="col-md-6">
-            <div class="col-md-12 d-flex align-items-center ">
+        <div class="text-center my-1">
+          <div class="col-md-12">
+            <div class="col-md-12  align-items-center d-md-flex">
               <div class="col-md-3 ">
                 <label for="inputLastName" class="form-label m-0">DATE DE FIN</label>
               </div>
               <div class="col-md-9">
-                <input type="date" class="form-control" name="date_end" require>
+                <input type="date" class="form-control" name="date_end" width="100%" require="">
               </div>
             </div>
           </div>
         </div>
-
-        <div class="row justify-content-center">
-          <div class="col-md-6 justify-content-center">
+        <div class=" ">
+          <div class="col-md-12">
             <div class="input-group mb-3">
               <select class="form-select" id="inputGroupSelect01" name="motifs_id">
-                <option selected value="1">Motif...</option>
+                <option selected="" value="1">Motif...</option>
               </select>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 mt-3 text-center pb-5">
-            <button type="submit" name="valider" class="btn btn-primary"
-              style="background-color:#2e4f9b">VALIDER</button>
+            <button type="submit" name="valider" class="btn btn-primary" style="background-color:#2e4f9b">VALIDER</button>
           </div>
         </div>
       </div>
     </div>
-  </form>
-  <!-- ************Table de récap***************** -->
+  </form>  <!-- ************Table de récap***************** -->
   <?php 
   try {                              
     $pole_service = "pole_service";
@@ -154,7 +147,7 @@ else {
   <?php if ($msgupdate): ?>
   <p><?=$msgupdate?></p>
   <?php endif; ?>
-  <div class="pole col-3 border border-1 border-dark mt-5 mb-0 text-center"
+  <div class="pole col-md-3 border border-1 border-dark mt-5 mb-0 text-center"
     style="background-color:#2e4f9b;color:white;">
     <h3>Agents Absents</h3>
   </div>
@@ -170,28 +163,28 @@ else {
 
   <?php foreach ($posts as $post): ?>
   <form action="" class="border" method="POST">
-    <div class="col-12 d-flex pt-2 pb-1">
-      <div class="col ps-1"><?=$post['pole_service']?></div>
-      <div class="col"><?=$post['name']?></div>
-      <div class="col">
+    <div class="col-md-12 d-sm-inline-block d-flex pt-2 pb-1">
+      <div class="col-md-1 col-12 ps-1"><?=$post['pole_service']?></div>
+      <div class="col-md-2 col-12"><?=$post['name']?></div>
+      <div class="col-md-2 col-12">
         <?=$post['first_name']?>
       </div>
-      <div class="col">
+      <div class="col-md-2 col-12">
         <span class="date_start_reel_<?=$post['id']?>">
           <?=$post['date_start']?>
         </span>
       </div>
-      <div class="col">
+      <div class="col-md-2 col-12">
         <span class="date_end_reel_<?=$post['id']?>">
           <?=$post['date_end']?>
         </span>
       </div>
-      <div class="col">
+      <div class="col-md-1 col-12">
         <span class="motif_reel_<?=$post['id']?>">
           <?=$post['motif']?>
         </span>
       </div>
-      <div class="col text-center">
+      <div class="col-md- col-122 text-center">
         <div class="button-absence-<?=$post['id']?>">
           <a href="views/delete.php?id=<?=$post['id']?>">
             <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>

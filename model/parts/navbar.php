@@ -21,14 +21,14 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     else: 
 ?>
 <div class="container-fluid">
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+<header class="col-md-12 m-auto d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="<?php echo $root . "index.php" ?>"
-        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        class="col-md-6 col-12 d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none flex-wrap justify-content-center">
         <span class="fs-4">GIEP-NC ABSENCES</span>
     </a>
     <ul class="nav nav-pills">
-        <li class="nav-item"><a href="http://intranet_dev/liste-des-agents-absents-du-giep-nc/" class="nav-link active" target="_blank">Intranet</a></li>
-        <li class="nav-item"><a href="<?php echo $logout_path; ?>" class="nav-link text-uppercase">Déconnexion</a></li>
+        <li class="nav-item" ><a href="http://intranet_dev/liste-des-agents-absents-du-giep-nc/" class="nav-link active"style="background-color:#2e4f9b;" target="_blank">Intranet</a></li>
+        <li class="nav-item"><a href="<?php echo $logout_path; ?>" class="nav-link text-uppercase" style="color:#2e4f9b;">Déconnexion</a></li>
     </ul>
 </header>
 
