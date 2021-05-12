@@ -3,6 +3,7 @@ $msg = "";
 $msgupdate = "";
 if(isset($_POST['button-absence']))
       try {
+        var_dump($_POST);
         $msgupdate="";
       if (!empty($_POST)) {
         $id="";
@@ -12,6 +13,8 @@ if(isset($_POST['button-absence']))
         $id = $_POST['button-absence'] ;
         $dateStart = $_POST['date_start'];
         $dateEnd = $_POST['date_end'];
+        var_dump($dateStart);
+        var_dump($dateEnd);
         // $motif = $_POST['motif'];
         $motif_int = (int)$motif;
         // Update posts table
@@ -92,7 +95,7 @@ else {
         </div>
       </div>
       <!-- " -->
-      <div class="col-12 showSubmit" style="">
+      <div class="col-12 showSubmit">
         <div class="text-center my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
@@ -152,20 +155,24 @@ else {
     <h3>Agents Absents</h3>
   </div>
   <div class="col-12 d-flex p-2 text-uppercase " style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
-    <div class="col">Pôle</div>
-    <div class="col">Nom</div>
-    <div class="col">Prénom</div>
-    <div class="col">Date de Début</div>
-    <div class="col"> Date de Fin</div>
-    <div class="col"> Motifs</div>
-    <div class="col text-center">Action</div>
+    <div class="col-md-1  ">Pôle</div>
+    <div class="col-md-2 ">Nom</div>
+    <div class="col-md-2 ">Prénom</div>
+    <div class="col-md-2 ">Date de Début</div>
+    <div class="col-md-2 "> Date de Fin</div>
+    <div class="col-md-1  "> Motifs</div>
+    <div class="col-md-2  text-center">Action</div>
   </div>
 
   <?php foreach ($posts as $post): ?>
   <form action="" class="border" method="POST">
-    <div class="col-md-12 d-sm-inline-block d-flex pt-2 pb-1">
-      <div class="col-md-1 col-12 ps-1"><?=$post['pole_service']?></div>
-      <div class="col-md-2 col-12"><?=$post['name']?></div>
+    <div class="col-md-12 d-md-flex  pt-2 pb-1">
+      <div class="col-md-1 col-12 ps-1">
+        <?=$post['pole_service']?>
+      </div>
+      <div class="col-md-2 col-12">
+        <?=$post['name']?>
+      </div>
       <div class="col-md-2 col-12">
         <?=$post['first_name']?>
       </div>
@@ -184,7 +191,7 @@ else {
           <?=$post['motif']?>
         </span>
       </div>
-      <div class="col-md- col-122 text-center">
+      <div class="col-md-2 col-12 text-center">
         <div class="button-absence-<?=$post['id']?>">
           <a href="views/delete.php?id=<?=$post['id']?>">
             <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
