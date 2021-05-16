@@ -103,10 +103,10 @@ else {
       </div>
       <!-- " -->
       <div class="col-12 showSubmit">
-        <div class="text-center my-1">
+        <div class=" my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
-              <div class="col-md-3">
+              <div class="col-md-3 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
                 <label for="inputLastName" class="form-label m-0 fs-6">DATE DE DÉBUT</label>
               </div>
               <div class="col-md-9">
@@ -115,10 +115,10 @@ else {
             </div>
           </div>
         </div>
-        <div class="text-center my-1">
+        <div class="my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
-              <div class="col-md-3 ">
+              <div class="col-md-3 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
                 <label for="inputLastName" class="form-label m-0">DATE DE FIN</label>
               </div>
               <div class="col-md-9">
@@ -162,13 +162,13 @@ else {
     style="background-color:#2e4f9b;color:white;">
     <h3>Agents Absents</h3>
   </div>
-  <div class="col-12 d-flex p-2 text-uppercase " style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
-    <div class="col-md-1  ">Pôle</div>
+  <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center" style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
+    <div class="col-md-1 ">Pôle</div>
     <div class="col-md-2 ">Nom</div>
     <div class="col-md-2 ">Prénom</div>
     <div class="col-md-2 ">Date de Début</div>
-    <div class="col-md-2 "> Date de Fin</div>
-    <div class="col-md-1  "> Motifs</div>
+    <div class="col-md-3 "> Date de Fin</div>
+    <!-- <div class="col-md-1  "> Motifs</div> -->
     <div class="col-md-2  text-center">Action</div>
   </div>
 
@@ -178,36 +178,36 @@ else {
 
       <div class="col-6 col-md-10 d-md-flex text-center">
 
-        <div class="col-md-1 col-12 ps-md-1">
+        <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase">
           <?=$post['pole_service']?>
         </div>
-        <div class="col-md-2 col-12">
+        <div class="col-md-3 col-12">
           <?=$post['name']?>
         </div>
         <div class="col-md-2 col-12">
           <?=$post['first_name']?>
         </div>
-        <div class="col-md-2 col-12">
+        <div class="col-md-3 col-12">
           <span class="date_start_reel_<?=$post['id']?>">
             <?=$post['date_start']?>
           </span>
         </div>
-        <div class="col-md-2 col-12">
+        <div class="col-md-3 col-12">
           <span class="date_end_reel_<?=$post['id']?>">
             <?=$post['date_end']?>
           </span>
         </div>
-        <div class="col-md-1 col-12">
+        <!-- <div class="col-md-1 col-12">
           <span class="motif_reel_<?=$post['id']?>">
             <?=$post['motif']?>
           </span>
-        </div>
+        </div> -->
 
       </div>
 
-      <div class="col-md-1 col-md-2 col-12 ps-md-1">
+      <div class="col-md-2 col-6 ps-md-1">
 
-        <div class="col-md-2 col-6 text-center mt-auto mb-auto">
+        <div class="col-md-2 col-12 text-center pt-5 pt-md-0">
           <div class="button-absence-<?=$post['id']?> d-md-flex">
             <a href="views/delete.php?id=<?=$post['id']?>">
               <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
