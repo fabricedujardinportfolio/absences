@@ -76,30 +76,37 @@ else {
 }
 
 ?>
-<form class="container " id="form1" action="index.php" method="post">
+  <form class="container " id="form1" action="index.php" method="post">
     <div class="col-6 formulaire m-auto ">
       <div class="title col-md-12 text-center text-uppercase mb-3">
         <div class="col-md-6 pt-5">
-                  </div>
+        </div>
       </div>
       <div class="col-md-12   text-center">
         <div class="col-md-12">
           <span>
             <input type="text" id="nameUser" name="nameUser" style="display:none;">
           </span>
-          <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name" name="name" onkeyup="autocomplet()" autocomplete="off">
+          <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name"
+            name="name" onkeyup="autocomplet()" autocomplete="off">
           <span>
-            <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start" style="cursor: pointer; display: none;" id="name_list"><li class="border bg-white" style="list-style-type: none;" onclick="set_item('DUJARDIN Fabrice');set_name('3')">DUJARDIN Fabrice</li> <li class="border bg-white" style="list-style-type: none;" onclick="set_item('RIGAUD Florian');set_name('4')">RIGAUD Florian</li> </ul>
+            <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start"
+              style="cursor: pointer; display: none;" id="name_list">
+              <li class="border bg-white" style="list-style-type: none;"
+                onclick="set_item('DUJARDIN Fabrice');set_name('3')">DUJARDIN Fabrice</li>
+              <li class="border bg-white" style="list-style-type: none;"
+                onclick="set_item('RIGAUD Florian');set_name('4')">RIGAUD Florian</li>
+            </ul>
           </span>
           <!-- <span><ul id="first_name_list"></ul></span> -->
         </div>
       </div>
       <!-- " -->
       <div class="col-12 showSubmit">
-        <div class="text-center my-1">
+        <div class=" my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
-              <div class="col-md-3">
+              <div class="col-md-3 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
                 <label for="inputLastName" class="form-label m-0 fs-6">DATE DE DÉBUT</label>
               </div>
               <div class="col-md-9">
@@ -108,10 +115,10 @@ else {
             </div>
           </div>
         </div>
-        <div class="text-center my-1">
+        <div class="my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
-              <div class="col-md-3 ">
+              <div class="col-md-3 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
                 <label for="inputLastName" class="form-label m-0">DATE DE FIN</label>
               </div>
               <div class="col-md-9">
@@ -131,12 +138,13 @@ else {
         </div>
         <div class="row">
           <div class="col-md-12 mt-3 text-center pb-5">
-            <button type="submit" name="valider" class="btn btn-primary" style="background-color:#2e4f9b">VALIDER</button>
+            <button type="submit" name="valider" class="btn btn-primary"
+              style="background-color:#2e4f9b">VALIDER</button>
           </div>
         </div>
       </div>
     </div>
-  </form>  <!-- ************Table de récap***************** -->
+  </form> <!-- ************Table de récap***************** -->
   <?php 
   try {                              
     $pole_service = "pole_service";
@@ -154,56 +162,66 @@ else {
     style="background-color:#2e4f9b;color:white;">
     <h3>Agents Absents</h3>
   </div>
-  <div class="col-12 d-flex p-2 text-uppercase " style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
-    <div class="col-md-1  ">Pôle</div>
+  <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center" style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
+    <div class="col-md-1 ">Pôle</div>
     <div class="col-md-2 ">Nom</div>
     <div class="col-md-2 ">Prénom</div>
     <div class="col-md-2 ">Date de Début</div>
-    <div class="col-md-2 "> Date de Fin</div>
-    <div class="col-md-1  "> Motifs</div>
+    <div class="col-md-3 "> Date de Fin</div>
+    <!-- <div class="col-md-1  "> Motifs</div> -->
     <div class="col-md-2  text-center">Action</div>
   </div>
 
   <?php foreach ($posts as $post): ?>
   <form action="" class="border" method="POST">
-    <div class="col-md-12 d-md-flex  pt-2 pb-1">
-      <div class="col-md-1 col-12 ps-1">
-        <?=$post['pole_service']?>
-      </div>
-      <div class="col-md-2 col-12">
-        <?=$post['name']?>
-      </div>
-      <div class="col-md-2 col-12">
-        <?=$post['first_name']?>
-      </div>
-      <div class="col-md-2 col-12">
-        <span class="date_start_reel_<?=$post['id']?>">
-          <?=$post['date_start']?>
-        </span>
-      </div>
-      <div class="col-md-2 col-12">
-        <span class="date_end_reel_<?=$post['id']?>">
-          <?=$post['date_end']?>
-        </span>
-      </div>
-      <div class="col-md-1 col-12">
-        <span class="motif_reel_<?=$post['id']?>">
-          <?=$post['motif']?>
-        </span>
-      </div>
-      <div class="col-md-2 col-12 text-center">
-        <div class="button-absence-<?=$post['id']?>">
-          <a href="views/delete.php?id=<?=$post['id']?>">
-            <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
-          </a>
-          <!-- <a href="views/update.php?id=<?=$post['id']?>"> -->
-          <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
-            onclick="update('<?=$post['id']?>','<?=$post['motif']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
-          <!-- </a> -->
+    <div class="col-md-12  d-flex pt-2 pb-1">
+
+      <div class="col-6 col-md-10 d-md-flex text-center">
+
+        <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase">
+          <?=$post['pole_service']?>
         </div>
-        <button type='submit' name="button-absence" value="<?=$post['id']?> " id="updateur-<?=$post['id']?>"
-          class="btn btn-sm btn-outline-secondary text-uppercase" style="display:none">valider</button>
+        <div class="col-md-3 col-12">
+          <?=$post['name']?>
+        </div>
+        <div class="col-md-2 col-12">
+          <?=$post['first_name']?>
+        </div>
+        <div class="col-md-3 col-12">
+          <span class="date_start_reel_<?=$post['id']?>">
+            <?=$post['date_start']?>
+          </span>
+        </div>
+        <div class="col-md-3 col-12">
+          <span class="date_end_reel_<?=$post['id']?>">
+            <?=$post['date_end']?>
+          </span>
+        </div>
+        <!-- <div class="col-md-1 col-12">
+          <span class="motif_reel_<?=$post['id']?>">
+            <?=$post['motif']?>
+          </span>
+        </div> -->
+
       </div>
+
+      <div class="col-md-2 col-6 ps-md-1">
+
+        <div class="col-md-2 col-12 text-center pt-5 pt-md-0">
+          <div class="button-absence-<?=$post['id']?> d-md-flex">
+            <a href="views/delete.php?id=<?=$post['id']?>">
+              <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
+            </a>
+            <!-- <a href="views/update.php?id=<?=$post['id']?>"> -->
+            <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
+              onclick="update('<?=$post['id']?>','<?=$post['motif']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
+            <!-- </a> -->
+          </div>
+          <button type='submit' name="button-absence" value="<?=$post['id']?> " id="updateur-<?=$post['id']?>"
+            class="btn btn-sm btn-outline-secondary text-uppercase" style="display:none">valider</button>
+        </div>
+      </div>
+
     </div>
   </form>
   <?php endforeach; ?>
