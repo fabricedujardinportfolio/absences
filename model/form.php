@@ -100,9 +100,8 @@ else {
           </span>
           <!-- <span><ul id="first_name_list"></ul></span> -->
         </div>
-      </div>
-      <!-- " -->
-      <div class="col-12 showSubmit">
+      </div>      
+      <div class="col-12 showSubmit" style="display:none">
         <div class=" my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
