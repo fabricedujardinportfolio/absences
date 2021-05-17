@@ -19,9 +19,9 @@
 ?>
 
     <div class="container" style="font-family:system-ui">
-        <div class="pole d-md-none border border-1 border-dark mt-5 mb-0 text-center"
+        <div class="pole col-12 d-md-none border border-1 border-dark mt-5 mb-0 text-center"
             style="background-color:#2e4f9b;color:white;">
-            <h3>Agents Absents</h3>
+            <h3>Liste des agents absents du GIEP-NC</h3>
         </div>
         <form action="">
             <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center"
