@@ -157,7 +157,7 @@ else {
   <?php if ($msgupdate): ?>
   <p><?=$msgupdate?></p>
   <?php endif; ?>
-  <div class="pole col-md-3 border border-1 border-dark mt-5 mb-0 text-center"
+  <div class="pole col-md-3 border border-1 border-dark rounded-top mt-5 mb-0 text-center"
     style="background-color:#2e4f9b;color:white;">
     <h3>Agents Absents</h3>
   </div>
