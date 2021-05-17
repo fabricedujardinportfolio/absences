@@ -105,10 +105,10 @@ else {
         <div class=" my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
-              <div class="col-md-3 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
-                <label for="inputLastName" class="form-label m-0 fs-6">DATE DE DÉBUT</label>
+              <div class="col-md-4 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
+                <label for="inputLastName" class="form-label m-0 fs-6">DÉBUT DE L'ABSENCE</label>
               </div>
-              <div class="col-md-9">
+              <div class="col-md-8">
                 <input type="date" id="dayNow" class="form-control" name="date_start" value="2021-05-12" require="">
               </div>
             </div>
@@ -117,10 +117,10 @@ else {
         <div class="my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
-              <div class="col-md-3 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
-                <label for="inputLastName" class="form-label m-0">DATE DE FIN</label>
+              <div class="col-md-4 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
+                <label for="inputLastName" class="form-label m-0">FIN DE L'ABSENCE</label>
               </div>
-              <div class="col-md-9">
+              <div class="col-md-8">
                 <input type="date" class="form-control" name="date_end" width="100%" require="">
               </div>
             </div>
@@ -162,11 +162,11 @@ else {
     <h3>Agents Absents</h3>
   </div>
   <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center" style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
-    <div class="col-md-1 ">Pôle</div>
-    <div class="col-md-2 ">Nom</div>
-    <div class="col-md-2 ">Prénom</div>
-    <div class="col-md-2 ">Date de Début</div>
-    <div class="col-md-3 "> Date de Fin</div>
+    <div class="col-md-1 "> Pôle </div>
+    <div class="col-md-2 "> Nom </div>
+    <div class="col-md-2 "> Prénom </div>
+    <div class="col-md-2 "> Début de l'absence </div>
+    <div class="col-md-3 "> Fin de l'absence </div>
     <!-- <div class="col-md-1  "> Motifs</div> -->
     <div class="col-md-2  text-center">Action</div>
   </div>
