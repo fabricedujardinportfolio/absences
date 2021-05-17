@@ -4,9 +4,10 @@
 
 
 </head>
+
 <body>
-    
-<?php 
+
+    <?php 
   try {                              
     $pole_service = "pole_service";
     $stmt = $conn->prepare('SELECT pole_service, absences_absences.id, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,absences_absences.id FROM `absences_absences`,`agents` WHERE agents_id=agents.id ORDER BY pole_service=? , name');
@@ -17,43 +18,45 @@
     }
 ?>
 
-<div class="container" style="font-family:system-ui">
-    
-    <div class="pole col-5 border border-1 border-dark mt-5 text-center text-white py-2 rounded-top" style="background-color:#2E4F9B">
-        <h4>Liste des agents absents du GIEP-NC</h4>
-    </div>
+    <div class="container" style="font-family:system-ui">
+        <div class="pole col-md-3 border border-1 border-dark mt-5 mb-0 text-center"
+            style="background-color:#2e4f9b;color:white;">
+            <h3>Agents Absents</h3>
+        </div>
+        <form action="">
+            <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center"
+                style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
+                <div class="col-md ps-2"> Pôle </div>
+                <div class="col-md-2"> Nom </div>
+                <div class="col-md-2"> Prénom </div>
+                <div class="col-md-3"> Début de l'absence </div>
+                <div class="col-md-3"> Fin de l'absence </div>
+            </div>
 
-    <form action="">
-        <div class="col-12 d-flex border border-1 border-dark text-white fs-6 text-uppercase py-2" style="background-color:#2E4F9B">
-            <div class="col ps-2"> Pôle </div>
-            <div class="col"> Nom </div>
-            <div class="col"> Prénom </div>
-            <div class="col"> Début de l'absence </div>
-            <div class="col"> Fin de l'absence </div>
-        </div>
-        
-        <?php foreach ($posts as $post): ?>
-        <div class="col-12 d-flex border-bottom fs-6 py-2">
-            <div class="col ps-2">
-                <?=$post['pole_service']?>
+            <?php foreach ($posts as $post): ?>
+            <div class="col-md-12  d-flex pt-2 pb-2 border">
+                <div class="col-12 col-md-12 d-md-flex text-center">
+                    <div class="col-md-2 col-12 ps-md-1 fw-bold text-uppercase">
+                        <?=$post['pole_service']?>
+                    </div>
+                    <div class="col-md-2 col-12">
+                        <?=$post['name']?>
+                    </div>
+                    <div class="col-md-2 col-12">
+                        <?=$post['first_name']?>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <span class="date_start_reel_<?=$post['id']?>">
+                            <?=$post['date_start']?>
+                        </span>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <span class="date_end_reel_<?=$post['id']?>">
+                            <?=$post['date_end']?>
+                        </span>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <?=$post['name']?>
-            </div>
-            <div class="col">
-                <?=$post['first_name']?>
-            </div>
-            <div class="col">
-                <span class="date_start_reel_<?=$post['id']?>">
-                    <?=$post['date_start']?>
-                </span>
-            </div>
-            <div class="col">
-                <span class="date_end_reel_<?=$post['id']?>">
-                    <?=$post['date_end']?>
-                </span>
-            </div>
-        </div>
-        <?php endforeach; ?>
-    </form>
-</div>
+            <?php endforeach; ?>
+        </form>
+    </div>
