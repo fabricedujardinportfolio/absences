@@ -28,8 +28,8 @@
             <div class="col ps-2"> Pôle </div>
             <div class="col"> Nom </div>
             <div class="col"> Prénom </div>
-            <div class="col"> Date de Début </div>
-            <div class="col"> Date de Fin </div>
+            <div class="col"> Début de l'absence </div>
+            <div class="col"> Fin de l'absence </div>
         </div>
         
         <?php foreach ($posts as $post): ?>
