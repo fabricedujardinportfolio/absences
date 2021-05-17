@@ -159,7 +159,7 @@ else {
   <?php endif; ?>
   <div class="pole col-md-3 border border-1 border-dark rounded-top mt-5 mb-0 text-center"
     style="background-color:#2e4f9b;color:white;">
-    <h3>Agents Absents</h3>
+    <h3>Liste des agents absents du GIEP-NC</h3>
   </div>
   <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center" style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
     <div class="col-md-1 "> Pôle </div>
