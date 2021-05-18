@@ -147,7 +147,7 @@ else {
   <?php 
   try {                              
     $pole_service = "pole_service";
-    $stmt = $conn->prepare('SELECT pole_service, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif,absences_absences.id FROM `absences_absences`,`agents`,`absences_arguments` WHERE  motifs_id=absences_arguments.id AND agents_id=agents.id ORDER BY pole_service=? , name');
+    $stmt = $conn->prepare('SELECT pole_service, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif,absences_absences.id FROM `absences_absences`,`agents`,`absences_arguments` WHERE  motifs_id=absences_arguments.id AND agents_id=agents.id AND CURRENT_DATE <= date_end ORDER BY pole_service=? , name');
     $stmt->execute([$pole_service]);
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e) {
@@ -157,7 +157,7 @@ else {
   <?php if ($msgupdate): ?>
   <p><?=$msgupdate?></p>
   <?php endif; ?>
-  <div class="pole col-md-3 border border-1 border-dark rounded-top mt-5 mb-0 text-center"
+  <div class="pole col-md-5 border border-1 border-dark rounded-top mt-5 mb-0 text-center"
     style="background-color:#2e4f9b;color:white;">
     <h3>Liste des agents absents du GIEP-NC</h3>
   </div>
