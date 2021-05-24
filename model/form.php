@@ -88,14 +88,14 @@ else {
             <input type="text" id="nameUser" name="nameUser" style="display:none;">
           </span>
           <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name"
-            name="name" onkeyup="autocomplet()" autocomplete="off">
+            name="name" onkeyup="autocomplet()" autocomplete="off" onclick="datnow();" >
           <span>
             <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start"
               style="cursor: pointer; display: none;" id="name_list">
               <li class="border bg-white" style="list-style-type: none;"
-                onclick="set_item('DUJARDIN Fabrice');set_name('3')">DUJARDIN Fabrice</li>
+                onclick="set_item();set_name()"></li>
               <li class="border bg-white" style="list-style-type: none;"
-                onclick="set_item('RIGAUD Florian');set_name('4')">RIGAUD Florian</li>
+                onclick="set_item();set_name()"></li>
             </ul>
           </span>
           <!-- <span><ul id="first_name_list"></ul></span> -->
@@ -109,7 +109,7 @@ else {
                 <label for="inputLastName" class="form-label m-0 fs-6">DÉBUT DE L'ABSENCE</label>
               </div>
               <div class="col-md-8">
-                <input type="date" id="dayNow" class="form-control" name="date_start" value="2021-05-12" require="">
+                <input type="date" id="dayNow" class="form-control" name="date_start" onclick="datnow();" value="" require="">
               </div>
             </div>
           </div>

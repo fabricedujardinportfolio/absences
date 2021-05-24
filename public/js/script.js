@@ -1,3 +1,12 @@
+function datnow() {		
+var now = new Date();
+var day = ("0" + now.getDate()).slice(-2);
+var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+$("#dayNow").val(today);
+// console.log(today);
+}
 // autocomplet : this function will be executed every time we change the text
 function autocomplet() {
 	var keyword = $('#name').val();
