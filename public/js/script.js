@@ -60,6 +60,8 @@ function update(dataid,datamotif,datastart,dataend) {
 	console.log(datamotif); 
 	console.log(datastart); 
 	console.log(dataend); 
+	$(".button-absence-"+dataid).hide();	
+
 	// let datamotifprint = datamotif;
 	// echo (datamotifprint);
 	if (typeof dataid === "undefined") {
@@ -82,8 +84,8 @@ $(".date_end_reel_"+dataid).html(`
 	onblur="(this.type='text')" class="form-control" name="date_end" >
 		`);
 
-$(".button-absence-"+dataid).hide();	
-$("#updateur-"+dataid).show();	
+$("#updateur-"+dataid).show();
+$(".btn-"+dataid).hide();	
 }
 // *****Fonction pour choix des motifs****
 // $(".motif_reel_"+dataid).html(`

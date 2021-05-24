@@ -207,14 +207,14 @@ else {
       <div class="col-md-2 col-6 ps-md-1">
 
         <div class="col-md-2 col-12 text-center pt-5 pt-md-0">
-          <div class="button-absence-<?=$post['id']?> d-md-flex">
-            <a href="views/delete.php?id=<?=$post['id']?>">
+          <div class="button-absence-<?=$post['id']?> d-md-flex" id="button-absence-<?=$post['id']?>">
+            <a class="btn-<?=$post['id']?>" href="views/delete.php?id=<?=$post['id']?>">
               <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
             </a>
-            <!-- <a href="views/update.php?id=<?=$post['id']?>"> -->
+            <a class="btn-<?=$post['id']?>" href="#">
             <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
               onclick="update('<?=$post['id']?>','<?=$post['motif']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
-            <!-- </a> -->
+            </a>
           </div>
           <button type='submit' name="button-absence" value="<?=$post['id']?> " id="updateur-<?=$post['id']?>"
             class="btn btn-sm btn-outline-secondary text-uppercase" style="display:none">valider</button>
