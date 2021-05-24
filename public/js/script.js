@@ -92,13 +92,16 @@ $(".date_end_reel_"+dataid).html(`
 	<input placeholder='`+dataend+`' type="text" value="`+dataend+`"  onfocus="(this.type='date')"
 	onblur="(this.type='text')" class="form-control" name="date_end" >
 		`);
+		
+// *****Fonction pour choix des motifs****
+$(".motif_reel_"+dataid).html(`
+<select class="form-select" id="inputGroupSelect01" name="motif" type="text"  placeholder='`+datamotif+`' 
+onblur="(this.type='text')">		
+	<option value="1">Toute la journée</option>
+                <option  value="2">AM</option>
+                <option  value="3">PM</option>
+</select>` );
 
 $("#updateur-"+dataid).show();
 $(".btn-"+dataid).hide();	
 }
-// *****Fonction pour choix des motifs****
-// $(".motif_reel_"+dataid).html(`
-// 	<select class="form-select" id="inputGroupSelect01" name="motif" type="text"  value="`+datamotif+`" placeholder='`+datamotif+`' 
-// 	onblur="(this.type='text')">
-// 		<option selected value="1">Ancien motif: `+datamotif+`</option>		
-// 	</select>` );

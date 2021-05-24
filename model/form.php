@@ -130,7 +130,9 @@ else {
           <div class="col-md-12">
             <div class="input-group mb-3">
               <select class="form-select" id="inputGroupSelect01" name="motifs_id">
-                <option selected="" value="1">Motif...</option>
+                <option selected="" value="1">Toute la journée</option>
+                <option  value="2">AM</option>
+                <option  value="3">PM</option>
               </select>
             </div>
           </div>
@@ -163,11 +165,11 @@ else {
   </div>
   <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center" style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
     <div class="col-md-1 "> Pôle </div>
-    <div class="col-md-2 "> Nom </div>
+    <div class="col-md-1 "> Nom </div>
     <div class="col-md-2 "> Prénom </div>
     <div class="col-md-2 "> Début de l'absence </div>
-    <div class="col-md-3 "> Fin de l'absence </div>
-    <!-- <div class="col-md-1  "> Motifs</div> -->
+    <div class="col-md-2 "> Fin de l'absence </div>
+    <div class="col-md-2  "> Motifs</div>
     <div class="col-md-2  text-center">Action</div>
   </div>
 
@@ -180,27 +182,27 @@ else {
         <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase">
           <?=$post['pole_service']?>
         </div>
-        <div class="col-md-3 col-12">
+        <div class="col-md-2 col-12">
           <?=$post['name']?>
         </div>
-        <div class="col-md-2 col-12">
+        <div class="col-md-2 text-start px-4 col-12">
           <?=$post['first_name']?>
         </div>
-        <div class="col-md-3 col-12">
+        <div class="col-md-2 col-12">
           <span class="date_start_reel_<?=$post['id']?>">
             <?=$post['date_start']?>
           </span>
         </div>
-        <div class="col-md-3 col-12">
+        <div class="col-md-2 col-12 text-end pe-3">
           <span class="date_end_reel_<?=$post['id']?>">
             <?=$post['date_end']?>
           </span>
         </div>
-        <!-- <div class="col-md-1 col-12">
+        <div class="col-md-3 col-12 ps-5">
           <span class="motif_reel_<?=$post['id']?>">
             <?=$post['motif']?>
           </span>
-        </div> -->
+        </div>
 
       </div>
 
