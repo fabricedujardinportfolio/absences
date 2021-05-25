@@ -68,7 +68,12 @@ function update(dataid,datamotif,datastart,dataend) {
 	console.log(dataid); 
 	console.log(datamotif); 
 	console.log(datastart); 
-	console.log(dataend); 
+	console.log(dataend);
+
+
+	datestartString = datastart.toString();
+	console.log(datestartString,"test");
+
 	$(".button-absence-"+dataid).hide();	
 
 	// let datamotifprint = datamotif;
@@ -85,11 +90,11 @@ function update(dataid,datamotif,datastart,dataend) {
 	if (typeof dataend === "undefined") {
 		console.log("dataend undefined"); 
 	}
-$(".date_start_reel_"+dataid).html(`<input  placeholder='`+datastart+`' type="text"  onfocus="(this.type='date')"
-onblur="(this.type='text')" value="`+datastart+`" id="dayNow" class="form-control" name="date_start" 
+$(".date_start_reel_"+dataid).html(`<input  placeholder='`+datestartString+`' type="text"  onfocus="(this.type='date')"
+onblur="(this.type='text')" value="`+datestartString+`" id="dayNow" class="form-control" name="date_start" 
 >`);
 $(".date_end_reel_"+dataid).html(`
-	<input placeholder='`+dataend+`' type="text" value="`+dataend+`"  onfocus="(this.type='date')"
+	<input placeholder='`+dataend+`' type="text" value="`+dataend+`"  onfocus="(this.type='date')" 
 	onblur="(this.type='text')" class="form-control" name="date_end" >
 		`);
 		

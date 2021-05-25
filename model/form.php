@@ -11,15 +11,17 @@ if(isset($_POST['button-absence']))
         $dateEnd="";
         $motif="";
         $id = $_POST['button-absence'] ;
-        $dateStart = $_POST['date_start'];
-        $dateEnd = $_POST['date_end'];
+        $date = $_POST['date_start'];
+        $dateStart = date('Y-m-d', strtotime($date));
         var_dump($dateStart);
-        var_dump($dateEnd);
+        $dateEnd = $_POST['date_end'];
+        $dateEndUpdate = date('Y-m-d', strtotime($dateEnd));
+        var_dump($dateEndUpdate);
         // $motif = $_POST['motif'];
         $motif_int = (int)$motif;
         // Update posts table
         $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ? WHERE id = ?');
-        $stmt->execute([$dateStart, $dateEnd, $id]);
+        $stmt->execute([$dateStart, $dateEndUpdate, $id]);
         // $teste = header('refresh:2; index.php');
         $msgupdate = '<spans class="alert alert-success" role="alert">Mis à jour avec succés!</span>';
         header("refresh:2; index.php");
