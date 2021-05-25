@@ -10,7 +10,7 @@
     <?php 
   try {                              
     $pole_service = "pole_service";
-    $stmt = $conn->prepare('SELECT pole_service, absences_absences.id, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,absences_absences.id, motif FROM `absences_absences`,`agents`,`absences_arguments` WHERE agents_id=agents.id AND motifs_id=absences_arguments.id AND date_start<=CURRENT_DATE AND CURRENT_DATE <= date_end ORDER BY pole_service=? , name');
+    $stmt = $conn->prepare('SELECT pole_service, absences_absences.id, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,absences_absences.id, motif FROM `absences_absences`,`agents`,`absences_arguments` WHERE agents_id=agents.id AND motifs_id=absences_arguments.id AND date_start<=CURRENT_DATE AND CURRENT_DATE <= date_end ORDER BY pole_service=? , name , absences_absences.date_start,"%Y/%m/%d"');
     $stmt->execute([$pole_service]);
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e) {
