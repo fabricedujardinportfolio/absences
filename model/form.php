@@ -3,28 +3,29 @@ $msg = "";
 $msgupdate = "";
 if(isset($_POST['button-absence']))
       try {
-        var_dump($_POST);
+        // var_dump($_POST);
         $msgupdate="";
       if (!empty($_POST)) {
         $id="";
         $dateStart="";
         $dateEnd="";
-        $motif="";
+        $motif= $_POST['motif'];
         $id = $_POST['button-absence'] ;
         $date = $_POST['date_start'];
         $dateStart = date('Y-m-d', strtotime($date));
-        var_dump($dateStart);
+        // var_dump($dateStart);
         $dateEnd = $_POST['date_end'];
         $dateEndUpdate = date('Y-m-d', strtotime($dateEnd));
-        var_dump($dateEndUpdate);
+        // var_dump($dateEndUpdate);
         // $motif = $_POST['motif'];
         $motif_int = (int)$motif;
+        // var_dump($motif_int);
         // Update posts table
-        $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ? WHERE id = ?');
-        $stmt->execute([$dateStart, $dateEndUpdate, $id]);
+        $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ?, motifs_id = ? WHERE id = ?');
+        $stmt->execute([$dateStart, $dateEndUpdate,$motif_int, $id]);
         // $teste = header('refresh:2; index.php');
         $msgupdate = '<spans class="alert alert-success" role="alert">Mis à jour avec succés!</span>';
-        header("refresh:2; index.php");
+        // header("refresh:2; index.php");
       }
         else{
         //  test
@@ -132,9 +133,9 @@ else {
           <div class="col-md-12">
             <div class="input-group mb-3">
               <select class="form-select" id="inputGroupSelect01" name="motifs_id">
-                <option selected="" value="1">Toute la journée</option>
-                <option  value="2">AM</option>
-                <option  value="3">PM</option>
+                <option selected="" value="1">Journée</option>
+                <option  value="2">Matin</option>
+                <option  value="3">Après-midi </option>
               </select>
             </div>
           </div>
