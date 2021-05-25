@@ -25,7 +25,7 @@ if(isset($_POST['button-absence']))
         $stmt->execute([$dateStart, $dateEndUpdate,$motif_int, $id]);
         // $teste = header('refresh:2; index.php');
         $msgupdate = '<spans class="alert alert-success" role="alert">Mis à jour avec succés!</span>';
-        // header("refresh:2; index.php");
+        header("refresh:2; index.php");
       }
         else{
         //  test
