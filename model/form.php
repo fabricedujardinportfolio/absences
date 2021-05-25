@@ -175,7 +175,7 @@ else {
 
   <?php foreach ($posts as $post): ?>
   <form action="" class="border" method="POST">
-    <div class="col-md-12  d-flex pt-2 pb-1">
+    <div class="col-md-12  d-flex pt-1 pb-1">
 
       <div class="col-6 col-md-10 d-md-flex text-center">
 
@@ -206,9 +206,9 @@ else {
 
       </div>
 
-      <div class="col-md-2 col-6 ps-md-1">
+      <div class="col-md-1 col-6 ">
 
-        <div class="col-md-2 col-12 text-center pt-5 pt-md-0">
+        <div class="col-md-2 col-12 text-center pt-5 pt-md-0 m-auto">
           <div class="button-absence-<?=$post['id']?> d-md-flex" id="button-absence-<?=$post['id']?>">
             <a class="btn-<?=$post['id']?>" href="views/delete.php?id=<?=$post['id']?>">
               <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
@@ -219,7 +219,7 @@ else {
             </a>
           </div>
           <button type='submit' name="button-absence" value="<?=$post['id']?> " id="updateur-<?=$post['id']?>"
-            class="btn btn-sm btn-outline-secondary text-uppercase" style="display:none">valider</button>
+            class="btn btn-sm btn-outline-secondary text-uppercase " style="display:none">valider</button>
         </div>
       </div>
 
