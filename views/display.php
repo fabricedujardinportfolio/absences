@@ -10,7 +10,7 @@
     <?php 
   try {                              
     $pole_service = "pole_service";
-    $stmt = $conn->prepare('SELECT pole_service, absences_absences.id, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,absences_absences.id FROM `absences_absences`,`agents` WHERE agents_id=agents.id AND date_start<=CURRENT_DATE AND CURRENT_DATE <= date_end  ORDER BY pole_service=? , name');
+    $stmt = $conn->prepare('SELECT pole_service, absences_absences.id, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,absences_absences.id, motif FROM `absences_absences`,`agents`,`absences_arguments` WHERE agents_id=agents.id AND motifs_id=absences_arguments.id AND date_start<=CURRENT_DATE AND CURRENT_DATE <= date_end ORDER BY pole_service=? , name');
     $stmt->execute([$pole_service]);
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e) {
@@ -29,8 +29,10 @@
                 <div class="col-md ps-2"> Pôle </div>
                 <div class="col-md-2"> Nom </div>
                 <div class="col-md-2"> Prénom </div>
-                <div class="col-md-3"> Début de l'absence </div>
-                <div class="col-md-3"> Fin de l'absence </div>
+                <div class="col-md-2"> Début de l'absence </div>
+                <div class="col-md-2"> Fin de l'absence </div>
+                <div class="col-md-2  "> Plage horaire </div>
+
             </div>
 
             <?php foreach ($posts as $post): ?>
@@ -45,14 +47,19 @@
                     <div class="col-md-2 col-12">
                         <?=$post['first_name']?>
                     </div>
-                    <div class="col-md-3 col-12">
+                    <div class="col-md-2 col-12">
                         <span class="date_start_reel_<?=$post['id']?>">
                             <?=$post['date_start']?>
                         </span>
                     </div>
-                    <div class="col-md-3 col-12">
+                    <div class="col-md-2 col-12">
                         <span class="date_end_reel_<?=$post['id']?>">
                             <?=$post['date_end']?>
+                        </span>
+                    </div>
+                    <div class="col-md-2 col-12">
+                        <span class="motif_reel_<?=$post['id']?>">
+                            <?=$post['motif']?>
                         </span>
                     </div>
                 </div>
