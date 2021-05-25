@@ -102,9 +102,9 @@ $(".date_end_reel_"+dataid).html(`
 $(".motif_reel_"+dataid).html(`
 <select class="form-select" id="inputGroupSelect01" name="motif" type="text"  placeholder='`+datamotif+`' 
 onblur="(this.type='text')">		
-	<option value="1">Toute la journée</option>
-                <option  value="2">AM</option>
-                <option  value="3">PM</option>
+	<option value="1">Journée</option>
+                <option value="2">Matin</option>
+                <option value="3">Après-midi</option>
 </select>` );
 
 $("#updateur-"+dataid).show();
