@@ -171,7 +171,7 @@ else {
     <div class="col-md-2 "> Prénom </div>
     <div class="col-md-2 "> Début de l'absence </div>
     <div class="col-md-2 "> Fin de l'absence </div>
-    <div class="col-md-2  "> Motifs</div>
+    <div class="col-md-2  "> Plage horaire</div>
     <div class="col-md-2  text-center">Action</div>
   </div>
 
