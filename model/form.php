@@ -172,7 +172,7 @@ else {
   <?php 
   try {                              
     $pole_service = "pole_service";
-    $stmt = $conn->prepare('SELECT pole_service, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif_start,motif_end,absences_absences.id FROM `absences_absences`,`agents`,`absences_motif_start`,`absences_motif_end` WHERE motif_start_id= absences_motif_start.idmotif_start AND motif_end_id= absences_motif_end.idmotif_end AND agents_id=agents.id AND CURRENT_DATE <= date_end ORDER BY pole_service=? , name');
+    $stmt = $conn->prepare('SELECT pole_service, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif_start,motif_end,motif_start_id,motif_end_id,absences_absences.id FROM `absences_absences`,`agents`,`absences_motif_start`,`absences_motif_end` WHERE motif_start_id= absences_motif_start.idmotif_start AND motif_end_id= absences_motif_end.idmotif_end AND agents_id=agents.id AND CURRENT_DATE <= date_end ORDER BY pole_service=? , name');
     $stmt->execute([$pole_service]);
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e) {
@@ -250,7 +250,7 @@ else {
             </a>
             <a class="btn-<?=$post['id']?>" href="#">
               <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
-                onclick="update('<?=$post['id']?>','<?=$post['motif_end']?>','<?=$post['motif_start']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
+                onclick="update('<?=$post['id']?>','<?=$post['motif_end']?>','<?=$post['motif_end_id']?>','<?=$post['motif_start']?>','<?=$post['motif_start_id']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
             </a>
           </div>
           <button type='submit' name="button-absence" value="<?=$post['id']?> " id="updateur-<?=$post['id']?>"

@@ -64,13 +64,21 @@ function set_name(item) {
 	$('#nameUserListe').hide();	
 }
   
-function update(dataid,datamotifend,datamotifstart,datastart,dataend) {		
+function update(dataid,datamotifend,datamotifendid,datamotifstart,datamotifstartid,datastart,dataend) {		
+	// id du post
 	console.log(dataid); 
+	//champs du motif de fin en string
 	console.log(datamotifend); 
+	//id champs du motif de fin en string
+	console.log(datamotifendid); 
+	//champs du motif de debut en string
 	console.log(datamotifstart); 
+	//id du champs du motif de debut en string
+	console.log(datamotifstartid); 
+	//date de début
 	console.log(datastart); 
+	//date de fin
 	console.log(dataend);
-
 
 	datestartString = datastart.toString();
 	console.log(datestartString,"test");
@@ -108,19 +116,21 @@ $(".date_end_reel_"+dataid).html(`
 $(".motif_start_reel"+dataid).html(`
 <select class="form-select" id="inputGroupSelect01" name="motif_start_id" type="text"  placeholder='`+datamotifstart+`' 
 onblur="(this.type='text')">		
-	<option value="1">Journée</option>
-                <option value="2">Matin</option>
-                <option value="3">Après-midi</option>
-</select>` );
-// *****Fonction pour choix des motifs****
-$(".motif_end_reel"+dataid).html(`
-<select class="form-select" id="inputGroupSelect01" name="motif_end_id" type="text"  placeholder='`+datamotifend+`' 
-onblur="(this.type='text')">		
+<option value="`+datamotifstartid+`">Votre anciene valeur : `+datamotifstart+`</option>
 	<option value="1">Journée</option>
                 <option value="2">Matin</option>
                 <option value="3">Après-midi</option>
 </select>` );
 
+// *****Fonction pour choix des motifs****
+$(".motif_end_reel"+dataid).html(`
+<select class="form-select" id="inputGroupSelect01" name="motif_end_id" type="text"  placeholder='`+datamotifend+`' 
+onblur="(this.type='text')">		
+<option value="`+datamotifendid+`">Votre anciene valeur : `+datamotifend+`</option>
+	<option value="1">Journée</option>
+                <option value="2">Matin</option>
+                <option value="3">Après-midi</option>
+</select>` );
 
 $("#updateur-"+dataid).show();
 $(".btn-"+dataid).hide();	
