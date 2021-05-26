@@ -91,28 +91,27 @@ else {
             <input type="text" id="nameUser" name="nameUser" style="display:none;">
           </span>
           <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name"
-            name="name" onkeyup="autocomplet()" autocomplete="off" onclick="datnow();" >
+            name="name" onkeyup="autocomplet()" autocomplete="off" onclick="datnow();">
           <span>
             <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start"
               style="cursor: pointer; display: none;" id="name_list">
-              <li class="border bg-white" style="list-style-type: none;"
-                onclick="set_item();set_name()"></li>
-              <li class="border bg-white" style="list-style-type: none;"
-                onclick="set_item();set_name()"></li>
+              <li class="border bg-white" style="list-style-type: none;" onclick="set_item();set_name()"></li>
+              <li class="border bg-white" style="list-style-type: none;" onclick="set_item();set_name()"></li>
             </ul>
           </span>
           <!-- <span><ul id="first_name_list"></ul></span> -->
         </div>
-      </div>      
+      </div>
       <div class="col-12 showSubmit" style="display:none">
         <div class=" my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
-              <div class="col-md-4 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
+              <div class="col-md-4 p-2 rounded mb-1 mb-md-0" style="background-color:#2e4f9b; color:white">
                 <label for="inputLastName" class="form-label m-0 fs-6">DÉBUT DE L'ABSENCE</label>
               </div>
               <div class="col-md-8">
-                <input type="date" id="dayNow" class="form-control" name="date_start" onclick="datnow();" value="" require="">
+                <input type="date" id="dayNow" class="form-control" name="date_start" onclick="datnow();" value=""
+                  require="">
               </div>
             </div>
           </div>
@@ -120,7 +119,7 @@ else {
         <div class="my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
-              <div class="col-md-4 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
+              <div class="col-md-4 p-2 rounded mb-1 mb-md-0" style="background-color:#2e4f9b; color:white">
                 <label for="inputLastName" class="form-label m-0">FIN DE L'ABSENCE</label>
               </div>
               <div class="col-md-8">
@@ -134,8 +133,8 @@ else {
             <div class="input-group mb-3">
               <select class="form-select" id="inputGroupSelect01" name="motifs_id">
                 <option selected="" value="1">Journée</option>
-                <option  value="2">Matin</option>
-                <option  value="3">Après-midi </option>
+                <option value="2">Matin</option>
+                <option value="3">Après-midi </option>
               </select>
             </div>
           </div>
@@ -166,13 +165,15 @@ else {
     style="background-color:#2e4f9b;color:white;">
     <h3>Liste des agents absents du GIEP-NC</h3>
   </div>
-  <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center" style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
+  <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center"
+    style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
     <div class="col-md-1 "> Pôle </div>
     <div class="col-md-1 "> Nom </div>
     <div class="col-md-2 "> Prénom </div>
     <div class="col-md-2 "> Début de l'absence </div>
+    <div class="col-md-1  "> De...</div>
+    <div class="col-md-1  "> A...</div>
     <div class="col-md-2 "> Fin de l'absence </div>
-    <div class="col-md-2  "> Plage horaire</div>
     <div class="col-md-2  text-center">Action</div>
   </div>
 
@@ -196,20 +197,30 @@ else {
             <?=$post['date_start']?>
           </span>
         </div>
-        <div class="col-md-2 col-12 text-end pe-3">
+
+        <div class="col-md-1 col-12 ps-5">après-midi
+          <!-- <span class="motif_start_<?=$post['id']?>">
+            <?=$post['motif']?>
+          </span> -->
+        </div>
+        <div class="col-md-1 col-12 ps-5">matin
+          <!-- <span class="motif_end_<?=$post['id']?>">
+            <?=$post['motif']?>
+          </span> -->
+        </div>
+
+
+
+        <div class="col-md-3 col-12 text-end pe-3">
           <span class="date_end_reel_<?=$post['id']?>">
             <?=$post['date_end']?>
           </span>
         </div>
-        <div class="col-md-3 col-12 ps-5">
-          <span class="motif_reel_<?=$post['id']?>">
-            <?=$post['motif']?>
-          </span>
-        </div>
+
 
       </div>
 
-      <div class="col-md-1 col-6 ">
+      <div class="col-md-2 col-6 ">
 
         <div class="col-md-2 col-12 text-center pt-5 pt-md-0 m-auto">
           <div class="button-absence-<?=$post['id']?> d-md-flex" id="button-absence-<?=$post['id']?>">
@@ -217,8 +228,8 @@ else {
               <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
             </a>
             <a class="btn-<?=$post['id']?>" href="#">
-            <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
-              onclick="update('<?=$post['id']?>','<?=$post['motif']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
+              <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
+                onclick="update('<?=$post['id']?>','<?=$post['motif']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
             </a>
           </div>
           <button type='submit' name="button-absence" value="<?=$post['id']?> " id="updateur-<?=$post['id']?>"
