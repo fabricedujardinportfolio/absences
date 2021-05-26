@@ -64,9 +64,10 @@ function set_name(item) {
 	$('#nameUserListe').hide();	
 }
   
-function update(dataid,datamotif,datastart,dataend) {		
+function update(dataid,datamotifend,datamotifstart,datastart,dataend) {		
 	console.log(dataid); 
-	console.log(datamotif); 
+	console.log(datamotifend); 
+	console.log(datamotifstart); 
 	console.log(datastart); 
 	console.log(dataend);
 
@@ -76,13 +77,16 @@ function update(dataid,datamotif,datastart,dataend) {
 
 	$(".button-absence-"+dataid).hide();	
 
-	// let datamotifprint = datamotif;
-	// echo (datamotifprint);
+	// let datamotifendprint = datamotifend;
+	// echo (datamotifendprint);
 	if (typeof dataid === "undefined") {
 		console.log("id undefined"); 
 	}
-	if (typeof datamotif === "undefined") {
-		console.log("datamotif undefined"); 
+	if (typeof datamotifend === "undefined") {
+		console.log("datamotifend undefined"); 
+	}
+	if (typeof datamotifstart === "undefined") {
+		console.log("datamotifstart undefined"); 
 	}
 	if (typeof datastart === "undefined") {
 		console.log("datastart undefined"); 
@@ -90,22 +94,33 @@ function update(dataid,datamotif,datastart,dataend) {
 	if (typeof dataend === "undefined") {
 		console.log("dataend undefined"); 
 	}
+	// date_start
 $(".date_start_reel_"+dataid).html(`<input  placeholder='`+datestartString+`' type="text"  onfocus="(this.type='date')"
 onblur="(this.type='text')" value="`+datestartString+`" id="dayNow" class="form-control" name="date_start" 
 >`);
+	// date_end
 $(".date_end_reel_"+dataid).html(`
 	<input placeholder='`+dataend+`' type="text" value="`+dataend+`"  onfocus="(this.type='date')" 
 	onblur="(this.type='text')" class="form-control" name="date_end" >
 		`);
 		
 // *****Fonction pour choix des motifs****
-$(".motif_reel_"+dataid).html(`
-<select class="form-select" id="inputGroupSelect01" name="motif" type="text"  placeholder='`+datamotif+`' 
+$(".motif_start_reel"+dataid).html(`
+<select class="form-select" id="inputGroupSelect01" name="motif_start_id" type="text"  placeholder='`+datamotifstart+`' 
 onblur="(this.type='text')">		
 	<option value="1">Journée</option>
                 <option value="2">Matin</option>
                 <option value="3">Après-midi</option>
 </select>` );
+// *****Fonction pour choix des motifs****
+$(".motif_end_reel"+dataid).html(`
+<select class="form-select" id="inputGroupSelect01" name="motif_end_id" type="text"  placeholder='`+datamotifend+`' 
+onblur="(this.type='text')">		
+	<option value="1">Journée</option>
+                <option value="2">Matin</option>
+                <option value="3">Après-midi</option>
+</select>` );
+
 
 $("#updateur-"+dataid).show();
 $(".btn-"+dataid).hide();	
