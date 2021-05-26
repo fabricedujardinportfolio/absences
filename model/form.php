@@ -9,21 +9,25 @@ if(isset($_POST['button-absence']))
         $id="";
         $dateStart="";
         $dateEnd="";
-        $motif= $_POST['motif'];
+        $motif_start="";
+        $motif_end="";
+        // $motif= $_POST['motif'];
         $id = $_POST['button-absence'] ;
         $date = $_POST['date_start'];
         $dateStart = date('Y-m-d', strtotime($date));
         // var_dump($dateStart);
         $dateEnd = $_POST['date_end'];
         $dateEndUpdate = date('Y-m-d', strtotime($dateEnd));
+        $motif_start_id = $_POST['motif_start_id'];
+        $motif_end_id = $_POST['motif_end_id'];
         // var_dump($dateEndUpdate);
         // $motif = $_POST['motif'];
-        $motif_int = (int)$motif;
+        // $motif_int = (int)$motif;
         // var_dump($motif_int);
         // Update posts table
-        $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ?, motifs_id = ? WHERE id = ?');
-        $stmt->execute([$dateStart, $dateEndUpdate,$motif_int, $id]);
-        // $teste = header('refresh:2; index.php');
+        $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ?, motif_start_id = ?, motif_end_id = ? WHERE id = ?');
+        $stmt->execute([$dateStart, $dateEndUpdate, $motif_start_id, $motif_end_id, $id]);
+        // $test = header('refresh:2; index.php');
         $msgupdate = '<spans class="alert alert-success" role="alert">Mis à jour avec succés!</span>';
         header("refresh:2; index.php");
       }
@@ -215,15 +219,15 @@ else {
           </span>
         </div>
 
-        <div class="col-md-1 col-12 ps-5">après-midi
-          <!-- <span class="motif_start_reel<?=$post['id']?>">
-            <?=$post['motif']?>
-          </span> -->
+        <div class="col-md-1 col-12 ps-5">
+          <span class="motif_start_reel<?=$post['id']?>">
+            <?=$post['motif_start']?>
+          </span>
         </div>
-        <div class="col-md-1 col-12 ps-5">matin
-          <!-- <span class="motif_end_reel<?=$post['id']?>">
-            <?=$post['motif']?>
-          </span> -->
+        <div class="col-md-1 col-12 ps-5">
+          <span class="motif_end_reel<?=$post['id']?>">
+            <?=$post['motif_end']?>
+          </span>
         </div>
 
 
@@ -246,7 +250,7 @@ else {
             </a>
             <a class="btn-<?=$post['id']?>" href="#">
               <button type='button' id="button-absence-<?=$post['id']?>" class='btn btn-sm btn-outline-secondary '
-                onclick="update('<?=$post['id']?>','<?=$post['motif']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
+                onclick="update('<?=$post['id']?>','<?=$post['motif_end']?>','<?=$post['motif_start']?>','<?=$post['date_start']?>','<?=$post['date_end']?>')">Modifier</button>
             </a>
           </div>
           <button type='submit' name="button-absence" value="<?=$post['id']?> " id="updateur-<?=$post['id']?>"
