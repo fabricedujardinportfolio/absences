@@ -57,11 +57,13 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         $Date_start_date = date($Date_start);
         $Date_end = isset($_POST['date_end']) ? $_POST['date_end'] : '';
         $Date_end_date = date($Date_end);
-        $Motifs_id = isset($_POST['motifs_id']) ? $_POST['motifs_id'] : '';    
-        $Motifs_id_int = (int)$Motifs_id;         
+        $Motifs_id_start = isset($_POST['idmotif_start']) ? $_POST['idmotif_start'] : '';    
+        $Motifs_id_int_start = (int)$Motifs_id_start;     
+        $Motifs_id_end = isset($_POST['idmotif_end']) ? $_POST['idmotif_end'] : '';    
+        $Motifs_id_int_end = (int)$Motifs_id_end;   
         // Insert value into 
-        $stmt = $conn->prepare('INSERT INTO `absences_absences` VALUES ("",?, ?, ?, ?)');
-        $stmt->execute([$name_int, $Motifs_id, $Date_start_date, $Date_end_date]);  
+        $stmt = $conn->prepare('INSERT INTO `absences_absences` VALUES ("",?, ?, ?, ?, ?)');
+        $stmt->execute([$Date_start_date,$Date_end_date,$name_int,$Motifs_id_int_start,$Motifs_id_int_end]);  
     $msg = '<div class="alert alert-success" role="alert">
     Créer avec succès!
   </div>';
@@ -104,15 +106,25 @@ else {
           <!-- <span><ul id="first_name_list"></ul></span> -->
         </div>
       </div>      
-      <div class="col-12 showSubmit" style="display:none">
+      <!-- style="display:none" -->
+      <div class="col-12 showSubmit" >
         <div class=" my-1">
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
               <div class="col-md-4 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
                 <label for="inputLastName" class="form-label m-0 fs-6">DÉBUT DE L'ABSENCE</label>
               </div>
-              <div class="col-md-8">
+              <div class="col-md-4">
                 <input type="date" id="dayNow" class="form-control" name="date_start" onclick="datnow();" value="" require="">
+              </div>
+              <div class="col-md-4">
+                <div class="input-group ">
+                <select class="form-select" id="inputGroupSelect01" name="idmotif_start">
+                    <option selected="" value="1">Journée</option>
+                    <option  value="2">Matin</option>
+                    <option  value="3">Après-midi </option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -123,21 +135,24 @@ else {
               <div class="col-md-4 p-2 rounded mb-1 mb-md-0"style="background-color:#2e4f9b; color:white">
                 <label for="inputLastName" class="form-label m-0">FIN DE L'ABSENCE</label>
               </div>
-              <div class="col-md-8">
+              <div class="col-md-4">
                 <input type="date" class="form-control" name="date_end" width="100%" require="">
+              </div>
+              <div class="col-md-4">
+                <div class="input-group ">
+                <select class="form-select" id="inputGroupSelect01" name="idmotif_end">
+                    <option selected="" value="1">Journée</option>
+                    <option  value="2">Matin</option>
+                    <option  value="3">Après-midi </option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class=" ">
           <div class="col-md-12">
-            <div class="input-group mb-3">
-              <select class="form-select" id="inputGroupSelect01" name="motifs_id">
-                <option selected="" value="1">Journée</option>
-                <option  value="2">Matin</option>
-                <option  value="3">Après-midi </option>
-              </select>
-            </div>
+            
           </div>
         </div>
         <div class="row">
