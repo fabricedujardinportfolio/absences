@@ -216,12 +216,12 @@ else {
         </div>
 
         <div class="col-md-1 col-12 ps-5">après-midi
-          <!-- <span class="motif_start_<?=$post['id']?>">
+          <!-- <span class="motif_start_reel<?=$post['id']?>">
             <?=$post['motif']?>
           </span> -->
         </div>
         <div class="col-md-1 col-12 ps-5">matin
-          <!-- <span class="motif_end_<?=$post['id']?>">
+          <!-- <span class="motif_end_reel<?=$post['id']?>">
             <?=$post['motif']?>
           </span> -->
         </div>
