@@ -213,7 +213,7 @@ else {
         </div>
         <div class="col-md-2 text-center col-12 ps-md-5 p-1">
           <?=$post['first_name']?>
-        </div
+        </div>
         <div class="maxHeight col-md-2 col-12 p-1">
           <span class="date_start_reel_<?=$post['id']?>">
             <?=$post['date_start']?>
