@@ -28,7 +28,7 @@ if(isset($_POST['button-absence']))
         $stmt = $conn->prepare('UPDATE absences_absences SET date_start = ?, date_end = ?, motif_start_id = ?, motif_end_id = ? WHERE id = ?');
         $stmt->execute([$dateStart, $dateEndUpdate, $motif_start_id, $motif_end_id, $id]);
         // $test = header('refresh:2; index.php');
-        $msgupdate = '<spans class="alert alert-success" role="alert">Mis à jour avec succés!</span>';
+        $msgupdate = '<spans class="alert alert-success mt-5 mt-md-0" role="alert">Mis à jour avec succés!</span>';
         header("refresh:2; index.php");
       }
         else{
@@ -213,27 +213,23 @@ else {
         </div>
         <div class="col-md-2 text-center col-12 ps-md-5 p-1">
           <?=$post['first_name']?>
-        </div>
-        <div class="col-md-2 col-12 p-1">
+        </div
+        <div class="maxHeight col-md-2 col-12 p-1">
           <span class="date_start_reel_<?=$post['id']?>">
             <?=$post['date_start']?>
           </span>
         </div>
-
-        <div class="col-md-2 col-12 ps-md-4 p-1">
+        <div class="maxHeight col-md-2 col-12 ps-md-4 p-1">
           <span class="motif_start_reel<?=$post['id']?> ">
             <?=$post['motif_start']?>
           </span>
         </div>
-        <div class="col-md-2 col-12 p-1">
+        <div class="maxHeight col-md-2 col-12 p-1">
           <span class="motif_end_reel<?=$post['id']?>">
             <?=$post['motif_end']?>
           </span>
         </div>
-
-
-
-        <div class="col-md-2 col-12 text-center p-1">
+        <div class="maxHeight col-md-2 col-12 text-center p-1">
           <span class="date_end_reel_<?=$post['id']?> pe-md-5">
             <?=$post['date_end']?>
           </span>

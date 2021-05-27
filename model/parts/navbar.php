@@ -7,6 +7,16 @@
   $dashboard_path = $root . "views/dashboard.php";
 ?>
 <!-- SCRIPT ICI -->
+<style>
+.maxHeight {
+    max-height : 43px;
+}
+p {
+    margin-top: 25px;
+    margin-bottom: 1rem;
+}
+
+</style>
 </head>
 
 <body>
