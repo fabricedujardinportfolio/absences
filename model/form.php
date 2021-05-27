@@ -205,27 +205,27 @@ else {
 
       <div class="col-md-10 col-6 d-md-flex text-center">
 
-        <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase">
+        <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase p-1">
           <?=$post['pole_service']?>
         </div>
-        <div class="col-md-1 col-12 ps-md-5">
+        <div class="col-md-1 col-12 ps-md-5 p-1">
           <?=$post['name']?>
         </div>
-        <div class="col-md-2 text-center col-12 ps-md-5">
+        <div class="col-md-2 text-center col-12 ps-md-5 p-1">
           <?=$post['first_name']?>
         </div>
-        <div class="col-md-2 col-12">
+        <div class="col-md-2 col-12 p-1">
           <span class="date_start_reel_<?=$post['id']?>">
             <?=$post['date_start']?>
           </span>
         </div>
 
-        <div class="col-md-2 col-12">
-          <span class="motif_start_reel<?=$post['id']?> ps-md-4">
+        <div class="col-md-2 col-12 ps-md-4 p-1">
+          <span class="motif_start_reel<?=$post['id']?> ">
             <?=$post['motif_start']?>
           </span>
         </div>
-        <div class="col-md-2 col-12">
+        <div class="col-md-2 col-12 p-1">
           <span class="motif_end_reel<?=$post['id']?>">
             <?=$post['motif_end']?>
           </span>
@@ -233,7 +233,7 @@ else {
 
 
 
-        <div class="col-md-2 col-12 text-center">
+        <div class="col-md-2 col-12 text-center p-1">
           <span class="date_end_reel_<?=$post['id']?> pe-md-5">
             <?=$post['date_end']?>
           </span>
@@ -255,7 +255,7 @@ else {
             </a>
           </div>
           <button type='submit' name="button-absence" value="<?=$post['id']?> " id="updateur-<?=$post['id']?>"
-            class="btn btn-sm btn-outline-secondary text-uppercase " style="display:none">valider</button>
+            class="btn btn-sm btn-outline-secondary text-uppercase mt-2 " style="display:none">valider</button>
         </div>
       </div>
 
