@@ -213,13 +213,12 @@ else {
         </div>
         <div class="col-md-2 text-center col-12 ps-md-5 p-1">
           <?=$post['first_name']?>
-        </div>
+        </div
         <div class="maxHeight col-md-2 col-12 p-1">
           <span class="date_start_reel_<?=$post['id']?>">
             <?=$post['date_start']?>
           </span>
         </div>
-
         <div class="maxHeight col-md-2 col-12 ps-md-4 p-1">
           <span class="motif_start_reel<?=$post['id']?> ">
             <?=$post['motif_start']?>
@@ -230,9 +229,6 @@ else {
             <?=$post['motif_end']?>
           </span>
         </div>
-
-
-
         <div class="maxHeight col-md-2 col-12 text-center p-1">
           <span class="date_end_reel_<?=$post['id']?> pe-md-5">
             <?=$post['date_end']?>
