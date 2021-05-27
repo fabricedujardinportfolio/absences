@@ -48,8 +48,9 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         header("refresh:0; views/login.php");
     else: 
 ?>
-
-<div class="container">
+<div class="container-fluid d-flex">
+<div class="col-md-1"></div>
+<div class="container-fluid">
   <!-- ************Formulaire de saisi***************** -->
   <?php
     if(isset($_POST['valider']))
@@ -186,13 +187,13 @@ else {
     style="background-color:#2e4f9b;color:white;">
     <h3>Liste des agents absents du GIEP-NC</h3>
   </div>
-  <div class="col-12 d-md-flex d-none p-2 text-uppercase text-center"
+  <div class="col-12 d-md-flex d-none py-2 px-0 text-uppercase text-center"
     style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
     <div class="col-md-1 "> Pôle </div>
     <div class="col-md-1 "> Nom </div>
-    <div class="col-md-2 "> Prénom </div>
-    <div class="col-md-2 "> Début de l'absence </div>
-    <div class="col-md-1  "> De...</div>
+    <div class="col-md-1 text-md-start ps-md-5"> Prénom </div>
+    <div class="col-md-2 text-md-end"> Début de l'absence </div>
+    <div class="col-md-2  "> De...</div>
     <div class="col-md-1  "> A...</div>
     <div class="col-md-2 "> Fin de l'absence </div>
     <div class="col-md-2  text-center">Action</div>
@@ -202,15 +203,15 @@ else {
   <form action="" class="border" method="POST">
     <div class="col-md-12  d-flex pt-1 pb-1">
 
-      <div class="col-6 col-md-10 d-md-flex text-center">
+      <div class="col-md-10 col-6 d-md-flex text-center">
 
         <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase">
           <?=$post['pole_service']?>
         </div>
-        <div class="col-md-2 col-12">
+        <div class="col-md-1 col-12 ps-md-5">
           <?=$post['name']?>
         </div>
-        <div class="col-md-2 text-start px-4 col-12">
+        <div class="col-md-2 text-center col-12 ps-md-5">
           <?=$post['first_name']?>
         </div>
         <div class="col-md-2 col-12">
@@ -219,12 +220,12 @@ else {
           </span>
         </div>
 
-        <div class="col-md-1 col-12 ps-5">
-          <span class="motif_start_reel<?=$post['id']?>">
+        <div class="col-md-2 col-12">
+          <span class="motif_start_reel<?=$post['id']?> ps-md-4">
             <?=$post['motif_start']?>
           </span>
         </div>
-        <div class="col-md-1 col-12 ps-5">
+        <div class="col-md-2 col-12">
           <span class="motif_end_reel<?=$post['id']?>">
             <?=$post['motif_end']?>
           </span>
@@ -232,8 +233,8 @@ else {
 
 
 
-        <div class="col-md-3 col-12 text-end pe-3">
-          <span class="date_end_reel_<?=$post['id']?>">
+        <div class="col-md-2 col-12 text-center">
+          <span class="date_end_reel_<?=$post['id']?> pe-md-5">
             <?=$post['date_end']?>
           </span>
         </div>
@@ -243,8 +244,8 @@ else {
 
       <div class="col-md-2 col-6 ">
 
-        <div class="col-md-2 col-12 text-center pt-5 pt-md-0 m-auto">
-          <div class="button-absence-<?=$post['id']?> d-md-flex" id="button-absence-<?=$post['id']?>">
+        <div class="col-md-12 col-12 text-center pt-5 pt-md-0 m-auto mt-3 mt-md-0">
+          <div class="button-absence-<?=$post['id']?> d-md-flex justify-content-center" id="button-absence-<?=$post['id']?>">
             <a class="btn-<?=$post['id']?>" href="views/delete.php?id=<?=$post['id']?>">
               <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
             </a>
@@ -261,5 +262,7 @@ else {
     </div>
   </form>
   <?php endforeach; ?>
-
+  </div>
+  <div class="col-md-1"></div>
+  </div>
   <?php endif;
