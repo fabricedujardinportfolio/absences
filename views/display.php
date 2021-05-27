@@ -31,9 +31,9 @@
                     <div class="col-md-1 "> Nom </div>
                     <div class="col-md-2 "> Prénom </div>
                     <div class="col-md-2 "> Début de l'absence </div>
-                    <div class="col-md-2  "> De...</div>
-                    <div class="col-md-2  "> A...</div>
-                    <div class="col-md-2 "> Fin de l'absence </div>
+                    <div class="col-md-2  "> Créneau</div>
+                    <div class="col-md-2 "> REPRISE</div>
+                    <div class="col-md-2  ">Créneau</div>
                 </div>
                 <?php foreach ($posts as $post): ?>
                 <div class="col-md-12  d-flex pt-2 pb-2 border">
@@ -58,13 +58,13 @@
                             </span>
                         </div>
                         <div class="col-md-2 col-12">
-                            <span class="motif_start_reel<?=$post['id']?> ">
-                                <?=$post['motif_end']?>
+                            <span class="motif_end_reel<?=$post['id']?>">
+                                <?=$post['date_end']?>
                             </span>
                         </div>
                         <div class="col-md-2 col-12">
-                            <span class="motif_end_reel<?=$post['id']?>">
-                                <?=$post['date_end']?>
+                            <span class="motif_start_reel<?=$post['id']?> ">
+                                <?=$post['motif_end']?>
                             </span>
                         </div>
                     </div>

@@ -85,7 +85,7 @@ else {
   // echo"test";
 }
 
-?>
+?>  
   <form class="container " id="form1" action="index.php" method="post">
     <div class="col-6 formulaire m-auto ">
       <div class="title col-md-12 text-center text-uppercase mb-3">
@@ -140,7 +140,7 @@ else {
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
               <div class="col-md-4 p-2 rounded mb-1 mb-md-0" style="background-color:#2e4f9b; color:white">
-                <label for="inputLastName" class="form-label m-0">FIN DE L'ABSENCE</label>
+                <label for="inputLastName" class="form-label m-0">REPRISE</label>
               </div>
               <div class="col-md-4">
                 <input type="date" class="form-control" name="date_end" width="100%" require="">
@@ -148,7 +148,6 @@ else {
               <div class="col-md-4">
                 <div class="input-group ">
                 <select class="form-select" id="inputGroupSelect01" name="idmotif_end">
-                    <option selected="" value="1">Journée</option>
                     <option  value="2">Matin</option>
                     <option  value="3">Après-midi </option>
                   </select>
@@ -193,9 +192,9 @@ else {
     <div class="col-md-1 "> Nom </div>
     <div class="col-md-1 text-md-start ps-md-5"> Prénom </div>
     <div class="col-md-2 text-md-end"> Début de l'absence </div>
-    <div class="col-md-2  "> De...</div>
-    <div class="col-md-1  "> A...</div>
-    <div class="col-md-2 "> Fin de l'absence </div>
+    <div class="col-md-2  ">Créneau</div>
+    <div class="col-md-2 text-start"> Date de reprise</div>
+    <div class="col-md-1  ">Créneau</div>
     <div class="col-md-2  text-center">Action</div>
   </div>
 
@@ -224,14 +223,14 @@ else {
             <?=$post['motif_start']?>
           </span>
         </div>
-        <div class="maxHeight col-md-2 col-12 p-1">
-          <span class="motif_end_reel<?=$post['id']?>">
-            <?=$post['motif_end']?>
+        <div class="maxHeight col-md-2 col-12 text-center p-1 ps-md-4">
+          <span class="date_end_reel_<?=$post['id']?> ">
+            <?=$post['date_end']?>
           </span>
         </div>
-        <div class="maxHeight col-md-2 col-12 text-center p-1">
-          <span class="date_end_reel_<?=$post['id']?> pe-md-5">
-            <?=$post['date_end']?>
+        <div class="maxHeight col-md-2 col-12 p-1 ps-md-5 text-center">
+          <span class="motif_end_reel<?=$post['id']?>">
+            <?=$post['motif_end']?>
           </span>
         </div>
 
