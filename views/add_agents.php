@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<?php
+    <?php
 $msg = "";
   if (isset($_POST["valider"]))
       # code...
@@ -50,49 +50,58 @@ $msg = "";
         }
       
   ?>
-<?php if ($msg): ?>
-  <p><?=$msg?></p>
-  <?php endif; ?>
-<form action="add_agents.php" method="POST" class="container">
-    <div class="col-12">
-        <label for="name" class="form-label">Nom</label>
-        <input id="name" type="text" name="name" placeholder="Le nom de l'agent SVP" class="form-control">
+    <?php if ($msg): ?>
+    <p><?=$msg?></p>
+    <?php endif; ?>
+    <div class="text-center col-12 mt-1">
+        <img src="../public/images/logo.png" alt="logo du giep" width="110" height="72">
     </div>
-    <div class="col-12">
-        <label for="first_name" class="form-label">Prénom</label>
-        <input id="first_name" type="text" name="first_name" placeholder="Le Prénom de l'agent SVP" class="form-control">
+    <div class="text-center">
+        <h1><strong class="text-uppercase">Rajouter un nouvel agent</strong></a></h1>
     </div>
-    <div class="col-12">
-        <label for="pole_service" class="form-label">Pôle service</label>
-        <input id="pole_service" type="text" name="pole_service" placeholder="Pôle service de l'agent SVP" class="form-control">
-    </div>
-    <div class="col-12">
-        <label for="function" class="form-label">Fonction</label>
-        <input id="function" type="text" name="function" placeholder="Fonction de l'agent SVP" class="form-control">
-    </div>
-    <div class="col-12">
-        <label for="passwords" class="form-label">Passwords</label>
-        <input id="passwords" type="password" name="passwords" value="123456" readonly class="form-control">
-    </div>
-    <div class="col-12">
-        <label for="active" class="form-label">Présence de l'agent dans l'entreprise"</label>
-        <select name="active" id="active" class="form-select">
-            <option value="1">Oui</option>
-            <option value="2">Non</option>
-        </select>
-    </div>
-    <div class="col-12">
-        <label for="email" class="form-label">Email</label>
-        <input id="email" type="text" name="email" placeholder="Email de l'agent SVP" class="form-control">
-    </div>
-    <div class="col-12 ">
-        <label for="connexion_absences" class="form-label">Connexion authorisée à l'APP absence</label>
-        <select name="connexion_absences" id="connexion_absences" class="form-select">
-            <option value="1">Oui</option>
-            <option value="2">Non</option>
-        </select>
-    </div>
-    <div class="col-md-12 mt-3 text-center pb-5">
-        <button type="submit" name="valider" class="btn btn-primary" style="background-color:#2e4f9b">VALIDER</button>
-    </div>
-</form>
+    <form action="add_agents.php" method="POST" class="container">
+        <div class="col-12">
+            <label for="name" class="form-label">Nom</label>
+            <input id="name" type="text" name="name" placeholder="Le nom de l'agent SVP" class="form-control">
+        </div>
+        <div class="col-12">
+            <label for="first_name" class="form-label">Prénom</label>
+            <input id="first_name" type="text" name="first_name" placeholder="Le Prénom de l'agent SVP"
+                class="form-control">
+        </div>
+        <div class="col-12">
+            <label for="pole_service" class="form-label">Pôle service</label>
+            <input id="pole_service" type="text" name="pole_service" placeholder="Pôle service de l'agent SVP"
+                class="form-control">
+        </div>
+        <div class="col-12">
+            <label for="function" class="form-label">Fonction</label>
+            <input id="function" type="text" name="function" placeholder="Fonction de l'agent SVP" class="form-control">
+        </div>
+        <div class="col-12">
+            <label for="passwords" class="form-label">Passwords</label>
+            <input id="passwords" type="password" name="passwords" value="123456" readonly class="form-control">
+        </div>
+        <div class="col-12">
+            <label for="active" class="form-label">Présence de l'agent dans l'entreprise"</label>
+            <select name="active" id="active" class="form-select">
+                <option value="1">Oui</option>
+                <option value="2">Non</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" type="text" name="email" placeholder="Email de l'agent SVP" class="form-control">
+        </div>
+        <div class="col-12 ">
+            <label for="connexion_absences" class="form-label">Connexion authorisée à l'APP absence</label>
+            <select name="connexion_absences" id="connexion_absences" class="form-select">
+                <option value="1">Oui</option>
+                <option value="2">Non</option>
+            </select>
+        </div>
+        <div class="col-md-12 mt-3 text-center pb-5">
+            <button type="submit" name="valider" class="btn btn-primary"
+                style="background-color:#2e4f9b">VALIDER</button>
+        </div>
+    </form>

@@ -172,8 +172,8 @@ else {
   <?php 
   try {                              
     $pole_service = "pole_service";
-    $stmt = $conn->prepare('SELECT pole_service, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif_start,motif_end,motif_start_id,motif_end_id,absences_absences.id FROM `absences_absences`,`agents`,`absences_motif_start`,`absences_motif_end` WHERE motif_start_id= absences_motif_start.idmotif_start AND motif_end_id= absences_motif_end.idmotif_end AND agents_id=agents.id AND CURRENT_DATE <= date_end ORDER BY pole_service=? , name');
-    $stmt->execute([$pole_service]);
+    $stmt = $conn->prepare('SELECT pole_service, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif_start,motif_end,motif_start_id,motif_end_id,absences_absences.id FROM `absences_absences`,`agents`,`absences_motif_start`,`absences_motif_end` WHERE motif_start_id= absences_motif_start.idmotif_start AND motif_end_id= absences_motif_end.idmotif_end AND agents_id=agents.id AND CURRENT_DATE <= date_end ORDER BY pole_service, name ');
+    $stmt->execute();
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e) {
       echo "Error: " . $e->getMessage();
@@ -186,16 +186,16 @@ else {
     style="background-color:#2e4f9b;color:white;">
     <h3>Liste des agents absents du GIEP-NC</h3>
   </div>
-  <div class="col-12 d-md-flex d-none py-2 px-0 text-uppercase text-center"
-    style="background-color:#2e4f9b;color:white; font-size: 1.2em;">
-    <div class="col-md-1 "> Pôle </div>
-    <div class="col-md-1 "> Nom </div>
-    <div class="col-md-1 text-md-start ps-md-5"> Prénom </div>
-    <div class="col-md-2 text-md-end"> Début de l'absence </div>
-    <div class="col-md-2  ">Créneau</div>
-    <div class="col-md-2 text-start"> Date de reprise</div>
-    <div class="col-md-1  ">Créneau</div>
-    <div class="col-md-2  text-center">Action</div>
+  <div class="col-12 d-md-flex d-none py-2 px-0 text-uppercase text-center "
+    style="background-color:#2e4f9b;color:white; font-size: 1.2em;" >
+    <div class="col-md-1 align-self-center" > Pôle </div>
+    <div class="col-md-1 align-self-center"> Nom </div>
+    <div class="col-md-1 text-md-start ps-md-5 align-self-center"> Prénom </div>
+    <div class="col-md-2 text-md-end align-self-center"> Début de l'absence </div>
+    <div class="col-md-2  align-self-center">Créneau</div>
+    <div class="col-md-2 text-start align-self-center"> Date de reprise</div>
+    <div class="col-md-1 text-start align-self-center">Créneau</div>
+    <div class="col-md-2  text-center align-self-center">Action</div>
   </div>
 
   <?php foreach ($posts as $post): ?>
@@ -204,31 +204,31 @@ else {
 
       <div class="col-md-10 col-6 d-md-flex text-center">
 
-        <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase p-1">
+        <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase p-1 align-self-center" style="font-size: 0.635em;">
           <?=$post['pole_service']?>
         </div>
-        <div class="col-md-1 col-12 ps-md-5 p-1">
+        <div class="col-md-1 col-12 ps-md-5 p-1 text-uppercase align-self-center">
           <?=$post['name']?>
         </div>
-        <div class="col-md-2 text-center col-12 ps-md-5 p-1">
+        <div class="col-md-2 text-center col-12 ps-md-5 p-1 text-capitalize align-self-center">
           <?=$post['first_name']?>
         </div>
-        <div class="maxHeight col-md-2 col-12 p-1">
+        <div class="maxHeight col-md-2 col-12 p-1 align-self-center">
           <span class="date_start_reel_<?=$post['id']?>">
             <?=$post['date_start']?>
           </span>
         </div>
-        <div class="maxHeight col-md-2 col-12 ps-md-4 p-1">
+        <div class="maxHeight col-md-2 col-12 ps-md-4 p-1 align-self-center">
           <span class="motif_start_reel<?=$post['id']?> ">
             <?=$post['motif_start']?>
           </span>
         </div>
-        <div class="maxHeight col-md-2 col-12 text-center p-1 ps-md-4">
+        <div class="maxHeight col-md-2 col-12 text-center p-1 ps-md-4 align-self-center">
           <span class="date_end_reel_<?=$post['id']?> ">
             <?=$post['date_end']?>
           </span>
         </div>
-        <div class="maxHeight col-md-2 col-12 p-1 ps-md-5 text-center">
+        <div class="maxHeight col-md-2 col-12 p-1 ps-md-5 text-center align-self-center">
           <span class="motif_end_reel<?=$post['id']?>">
             <?=$post['motif_end']?>
           </span>
@@ -237,9 +237,9 @@ else {
 
       </div>
 
-      <div class="col-md-2 col-6 ">
+      <div class="col-md-2 col-6 align-self-center">
 
-        <div class="col-md-12 col-12 text-center pt-5 pt-md-0 m-auto mt-3 mt-md-0">
+        <div class="col-md-12 col-12 text-center pt-5 pt-md-0 m-auto mt-3 mt-md-0 align-self-center">
           <div class="button-absence-<?=$post['id']?> d-md-flex justify-content-center" id="button-absence-<?=$post['id']?>">
             <a class="btn-<?=$post['id']?>" href="views/delete.php?id=<?=$post['id']?>">
               <button type='button' class='btn btn-sm btn-outline-danger'>Supprimer</button>
