@@ -104,12 +104,12 @@ function update(dataid,datamotifend,datamotifendid,datamotifstart,datamotifstart
 	}
 	// date_start
 $(".date_start_reel_"+dataid).html(`<input  placeholder='`+datestartString+`' type="text"  onfocus="(this.type='date')"
-onblur="(this.type='text')" value="`+datestartString+`" id="dayNow" class="form-control" name="date_start" 
+ value="`+datestartString+`" id="dayNow" class="form-control" name="date_start" 
 >`);
 	// date_end
 $(".date_end_reel_"+dataid).html(`
 	<input placeholder='`+dataend+`' type="text" value="`+dataend+`"  onfocus="(this.type='date')" 
-	onblur="(this.type='text')" class="form-control" name="date_end" >
+	 class="form-control" name="date_end" >
 		`);
 		
 // *****Fonction pour choix des motifs****

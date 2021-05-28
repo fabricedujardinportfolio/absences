@@ -20,6 +20,7 @@ if(isset($_POST['button-absence']))
         $dateEndUpdate = date('Y-m-d', strtotime($dateEnd));
         $motif_start_id = $_POST['motif_start_id'];
         $motif_end_id = $_POST['motif_end_id'];
+        var_dump($_POST);
         // var_dump($dateEndUpdate);
         // $motif = $_POST['motif'];
         // $motif_int = (int)$motif;
@@ -29,7 +30,7 @@ if(isset($_POST['button-absence']))
         $stmt->execute([$dateStart, $dateEndUpdate, $motif_start_id, $motif_end_id, $id]);
         // $test = header('refresh:2; index.php');
         $msgupdate = '<spans class="alert alert-success mt-5 mt-md-0" role="alert">Mis à jour avec succés!</span>';
-        header("refresh:2; index.php");
+        // header("refresh:2; index.php");
       }
         else{
         //  test
