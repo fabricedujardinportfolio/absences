@@ -20,7 +20,7 @@ if(isset($_POST['button-absence']))
         $dateEndUpdate = date('Y-m-d', strtotime($dateEnd));
         $motif_start_id = $_POST['motif_start_id'];
         $motif_end_id = $_POST['motif_end_id'];
-        var_dump($_POST);
+        // var_dump($_POST);
         // var_dump($dateEndUpdate);
         // $motif = $_POST['motif'];
         // $motif_int = (int)$motif;
