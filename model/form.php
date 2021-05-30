@@ -128,7 +128,7 @@ else {
               <div class="col-md-4">
                 <div class="input-group ">
                 <select class="form-select" id="inputGroupSelect01" name="idmotif_start">
-                    <option selected="" value="1">Journée</option>
+                    <!-- <option selected="" value="">Journée</option> -->
                     <option  value="2">Matin</option>
                     <option  value="3">Après-midi </option>
                   </select>
@@ -141,7 +141,7 @@ else {
           <div class="col-md-12">
             <div class="col-md-12  align-items-center d-md-flex">
               <div class="col-md-4 p-2 rounded mb-1 mb-md-0" style="background-color:#2e4f9b; color:white">
-                <label for="inputLastName" class="form-label m-0">REPRISE</label>
+                <label for="inputLastName" class="form-label m-0">FIN DE L'ABSENCE</label>
               </div>
               <div class="col-md-4">
                 <input type="date" class="form-control" name="date_end" width="100%" require="">
@@ -194,7 +194,7 @@ else {
     <div class="col-md-1 text-md-start ps-md-5 align-self-center"> Prénom </div>
     <div class="col-md-2 text-md-end align-self-center"> Début de l'absence </div>
     <div class="col-md-2  align-self-center">Créneau</div>
-    <div class="col-md-2 text-start align-self-center"> Date de reprise</div>
+    <div class="col-md-2 text-start align-self-center"> Fin de l'absence</div>
     <div class="col-md-1 text-start align-self-center">Créneau</div>
     <div class="col-md-2  text-center align-self-center">Action</div>
   </div>

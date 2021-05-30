@@ -33,12 +33,14 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                     if ($row["connexion_absences"]=="1" && $row["active"]=="1") {
                         if($password==$row["passwords"]) //check condition user taypable "password" is match from database "password" using password_verify() after continue
                         {
+                            $_SESSION["user_email"] = $row["email"];
+                            $_SESSION["user_psw"] = $row["passwords"];
                             $_SESSION["user_login"] = $row["id"];
                             $_SESSION["user_pole"] = $row["pole_service"];
                             //session name is "user_login"
                             $_SESSION["loggedIn"] = true;
                             $loginMsg = "Connexion réussie...";		//user login success message
-                            header("refresh:2; ../index.php");			//refresh 2 second after redirect to "welcome.php" page
+                            header("refresh:2; update_mdp.php");			//refresh 2 second after redirect to "welcome.php" page
                         }
                         else{                            
 						$errorMsg[]="Le mot de passe n'existe pas";
@@ -100,7 +102,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                     <img  src="../public/images/logo.png" alt="logo du giep" width="110" height="72">
                 </div>
                 <div class="text-center">
-                <h1><strong class="text-uppercase">Saisie des absents</strong></a></h1>
+                <h1><strong class="text-uppercase">Update MDP</strong></a></h1>
                 </div>
                 <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter<hr></h2>
                 <div class="form-group">

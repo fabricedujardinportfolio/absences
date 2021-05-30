@@ -29,7 +29,15 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
 <?php
         header("refresh:2; views/login.php");
     else: 
+        if ($_SESSION["user_pole"] === "COMMUNICATION / DOCUMENTATION​") {            
+            echo"
+            <h6 class='mt-3 ms-2'>ADMIN COMMUNICATION / DOCUMENTATION​</h6>
+            <ul class='nav nav-pills ms-2'>
+                <li class='nav-item'> <a href='http://192.168.40.77/applications/absence/views/add_agents.php' style='background-color:#2e4f9b;' target='_blank' class='nav-link active'> RAJOUTER UN AGENT</a></li>
+            </ul>";
+            }
 ?>
+
 <div class="container-fluid">
 <header class="col-md-12 m-auto d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="<?php echo $root . "index.php" ?>"
@@ -37,7 +45,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         <span class="fs-4">GIEP-NC ABSENCES</span>
     </a>
     <ul class="nav nav-pills">
-        <li class="nav-item" ><a href="http://intranet_dev/liste-des-agents-absents-du-giep-nc/" class="nav-link active"style="background-color:#2e4f9b;" target="_blank">Intranet</a></li>
+        <li class="nav-item" ><a href="http://intranet_dev/liste-des-agents-absents-du-giep-nc/" class="nav-link active" style="background-color:#2e4f9b;" target="_blank">Intranet</a></li>
         <li class="nav-item"><a href="<?php echo $logout_path; ?>" class="nav-link text-uppercase" style="color:#2e4f9b;">Déconnexion</a></li>
     </ul>
 </header>

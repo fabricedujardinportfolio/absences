@@ -117,7 +117,6 @@ $(".motif_start_reel"+dataid).html(`
 <select class="form-select" id="inputGroupSelect01" name="motif_start_id" type="text"  placeholder='`+datamotifstart+`' 
 onblur="(this.type='text')">		
 <option value="`+datamotifstartid+`">Votre anciene valeur : `+datamotifstart+`</option>
-	<option value="1">Journée</option>
                 <option value="2">Matin</option>
                 <option value="3">Après-midi</option>
 </select>` );
