@@ -6,8 +6,6 @@
   $register_path = $root . "views/registration.php";
   $dashboard_path = $root . "views/dashboard.php";
 ?>
-<link rel="icon" type="image/ico" href="http://absences/giep-nc.ico" />
-<link rel="icon" type="image/ico" href="giep-nc.ico" />
 <!-- SCRIPT ICI -->
 <style>
 .maxHeight {
@@ -45,7 +43,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
 <div class="container-fluid">
 <header class="col-md-12 m-auto d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom d-flex">
     <a href="<?php echo $root . "index.php" ?>"
-        class="col-md-6 col-12 d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none flex-wrap justify-content-center">
+        class="col-md-6 col-12 d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none flex-wrap ms-md-3 justify-content-center justify-content-md-start">
         <span class="fs-4">GIEP-NC ABSENCES</span>
     </a>
     <ul class="nav nav-pills">
