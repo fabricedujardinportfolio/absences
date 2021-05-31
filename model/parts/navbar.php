@@ -6,6 +6,8 @@
   $register_path = $root . "views/registration.php";
   $dashboard_path = $root . "views/dashboard.php";
 ?>
+<link rel="icon" type="image/ico" href="http://absences/giep-nc.ico" />
+<link rel="icon" type="image/ico" href="giep-nc.ico" />
 <!-- SCRIPT ICI -->
 <style>
 .maxHeight {
