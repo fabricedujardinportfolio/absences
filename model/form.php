@@ -30,7 +30,7 @@ if(isset($_POST['button-absence']))
         $stmt->execute([$dateStart, $dateEndUpdate, $motif_start_id, $motif_end_id, $id]);
         // $test = header('refresh:2; index.php');
         $msgupdate = '<spans class="alert alert-success mt-5 mt-md-0" role="alert">Mis à jour avec succés!</span>';
-        header("refresh:2; index.php");
+        header("refresh:2; /index.php");
       }
         else{
         //  test
@@ -73,7 +73,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     $msg = '<div class="alert alert-success" role="alert">
     Créer avec succès!
   </div>';
-  header("refresh:2; index.php");
+  header("refresh:2; /index.php");
 }catch(PDOException $e) {
   echo "
   <div class='alert alert-warning text-center' role='alert'>

@@ -72,7 +72,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false || $_SESSION[
         </div>
     </div>
     <div class="text-center">
-        <h1><strong class="text-uppercase">Rajouter un nouvel agent</strong></a></h1>
+        <h1><strong class="text-uppercase text-center">Rajouter un nouvel agent</strong></a></h1>
     </div>
     <div class="container-fluid d-flex">
         <div class="col-2">

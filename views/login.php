@@ -109,7 +109,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                 </div>
                 <div class="form-group pt-2">
                     <label for="Passwordid" class="pb-1"><strong>Mot de passe :</strong></label>
-                    <input type="password" class="form-control" id="Passwordid" placeholder="Entrer votre mots de pass" name="passwords">
+                    <input type="password" class="form-control" id="Passwordid" placeholder="Entrer votre mot de passe" name="passwords">
                 </div>
                 <div class="text-center  mb-3">
                 <button class="btn btn-lg btn btn-primary btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier" style="background-color:#2e4f9b;color:white;">S'identifier</button>
