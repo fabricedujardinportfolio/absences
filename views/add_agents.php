@@ -11,6 +11,7 @@ $msg = "";
   if (isset($_POST["valider"]))
       # code...
       try {
+        //   var_dump($_POST);
         $msg = '';
         // echo "test";
         // var_dump($_POST);
@@ -28,11 +29,9 @@ $msg = "";
         // var_dump($active);
         $email = $_POST["email"];
         // var_dump($email);
-        $connexion_absences = $_POST["connexion_absences"];
-        // var_dump($connexion_absences);
 
-        $stmt = $conn->prepare('INSERT INTO `agents` VALUES ("",?, ?, ?, ?, ?, ? ,? , ? )');
-        $stmt->execute([$name,$first_name,$pole_service,$function,$passwords,$active,$email, $connexion_absences]);  
+        $stmt = $conn->prepare('INSERT INTO `agents` VALUES ("",?, ?, ?, ?, ?, ? ,? )');
+        $stmt->execute([$name,$first_name,$function,$passwords,$active,$email,$pole_service]);  
         $msg = '<div class="alert alert-success" role="alert">
         Créer avec succès!
       </div>';
@@ -41,20 +40,19 @@ $msg = "";
           //throw $th;
           echo "
           <div class='alert alert-warning text-center' role='alert'>
-          <strong>Utiliser un des utilisateurs que vous proposent l'auto-complétions du tableau.</strong>
+          <strong>Contacter l'administrateur.</strong>
           </div>
           " ;
         }
         else {
           // echo"test";
-        }
-      
+        }      
   ?>
   <?php 
 //   var_dump($_SESSION["user_pole"]);
   $poleUser = $_SESSION["user_pole"];
  
-if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false || $_SESSION["user_pole"] !== "COMMUNICATION / DOCUMENTATION​" ):
+if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false || $_SESSION["user_pole"] !== "1" ):
     ?>
 <?php
         header("refresh:0; login.php");
@@ -75,26 +73,9 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false || $_SESSION[
         <h1><strong class="text-uppercase text-center">Rajouter un nouvel agent</strong></a></h1>
     </div>
     <div class="container-fluid d-flex">
-        <div class="col-2">
-            <div class="container">
-                <h2>Pôle et service</h2>                
-                <ul>                
-                    <li class="p-1">COMMUNICATION / DOCUMENTATION​</li>
-                    <li class="p-1">COORDINATION ET PÉRI-FORMATION BOURAIL​</li>
-                    <li class="p-1">DIRECTION​</li>
-                    <li class="p-1">FINANCE ET RESSOURCE HUMAINE​</li>
-                    <li class="p-1">HÔTELLERIE RESTAURATION​</li>
-                    <li class="p-1">INDUSTRIE</li>
-                    <li class="p-1">INFORMATION ORIENTATION​</li>
-                    <li class="p-1">MAINTENANCE AUTOMOBILE / ENGINS​</li>
-                    <li class="p-1">MÉTIERS DE LA MER​​</li>
-                    <li class="p-1">MOYENS GÉNÉRAUX​</li>
-                    <li class="p-1">SPOT​</li>
-                    <li class="p-1">TRANSPORT LOGISTIQUE​</li>    
-                </ul>   
-            </div>
+        <div class="col-3">
         </div>
-        <div class="col-10">
+        <div class="col-6">
             <form action="add_agents.php" method="POST" class="container">
                 <div class="col-12">
                     <label for="name" class="form-label">Nom</label>
@@ -106,9 +87,24 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false || $_SESSION[
                         class="form-control">
                 </div>
                 <div class="col-12">
-                    <label for="pole_service" class="form-label">Pôle service</label>
-                    <input id="pole_service" type="text" name="pole_service" placeholder="Pôle service de l'agent SVP"
-                        class="form-control">
+                    <div>
+                        <label for="pole_service" class="form-label">Pôle service</label>
+                        <select class="form-select" id="inputGroupSelect01" name="pole_service">
+                            <option  value="1">COMMUNICATION / DOCUMENTATION​</option>
+                            <option  value="2">DIRECTION</option>
+                            <option  value="3">FINANCE ET RESSOURCE HUMAINE​</option>
+                            <option  value="4">MÉTIERS DE LA MER​​</option>
+                            <option  value="5">SPOT​</option>
+                            <option  value="6">MAINTENANCE AUTOMOBILE / ENGINS​</option>
+                            <option  value="7">INFORMATION ORIENTATION​</option>
+                            <option  value="8">NUMÉRO VERT​</option>
+                            <option  value="9">INDUSTRIE​</option>
+                            <option  value="10">HÔTELLERIE RESTAURATION​</option>
+                            <option  value="11">MOYENS GÉNÉRAUX​</option>
+                            <option  value="12">COORDINATION ET PÉRI-FORMATION BOURAIL​</option>
+                            <option  value="13">TRANSPORT LOGISTIQUE​</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="col-12">
                     <label for="function" class="form-label">Fonction</label>
@@ -123,25 +119,20 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false || $_SESSION[
                     <label for="active" class="form-label">Présence de l'agent dans l'entreprise"</label>
                     <select name="active" id="active" class="form-select">
                         <option value="1">Oui</option>
-                        <option value="2">Non</option>
+                        <option value="0">Non</option>
                     </select>
                 </div>
                 <div class="col-12">
                     <label for="email" class="form-label">Email</label>
                     <input id="email" type="text" name="email" placeholder="Email de l'agent SVP" class="form-control">
                 </div>
-                <div class="col-12 ">
-                    <label for="connexion_absences" class="form-label">Connexion authorisée à l'APP absence</label>
-                    <select name="connexion_absences" id="connexion_absences" class="form-select">
-                        <option value="1">Oui</option>
-                        <option value="2">Non</option>
-                    </select>
-                </div>
                 <div class="col-md-12 mt-3 text-center pb-5">
                     <button type="submit" name="valider" class="btn btn-primary"
                         style="background-color:#2e4f9b">VALIDER</button>
                 </div>
             </form>
+        </div>
+        <div class="col-3">
         </div>
     </div>
     
