@@ -57,6 +57,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     if(isset($_POST['valider']))
  try {        
     $msg = '';
+    // var_dump($_POST);
         $Name = isset($_POST['nameUser']) ? $_POST['nameUser'] : '';
         $name_int = (int)$Name;
         $Date_start = isset($_POST['date_start']) ? $_POST['date_start'] : '';
@@ -67,9 +68,11 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
         $Motifs_id_int_start = (int)$Motifs_id_start;     
         $Motifs_id_end = isset($_POST['idmotif_end']) ? $_POST['idmotif_end'] : '';    
         $Motifs_id_int_end = (int)$Motifs_id_end;   
+        $pole_id = $_POST['pole_id'];
+        $pole_id_int = (int)$pole_id;
         // Insert value into 
-        $stmt = $conn->prepare('INSERT INTO `absences_absences` VALUES ("",?, ?, ?, ?, ?)');
-        $stmt->execute([$Date_start_date,$Date_end_date,$name_int,$Motifs_id_int_start,$Motifs_id_int_end]);  
+        $stmt = $conn->prepare('INSERT INTO `absences_absences` VALUES ("",?, ?, ?, ?, ?,?)');
+        $stmt->execute([$Date_start_date,$Date_end_date,$Motifs_id_int_start,$Motifs_id_int_end,$name_int,$pole_id_int]);  
     $msg = '<div class="alert alert-success" role="alert">
     Créer avec succès!
   </div>';
@@ -97,14 +100,15 @@ else {
         <div class="col-md-12">
           <span>
             <input type="text" id="nameUser" name="nameUser" style="display:none;">
+            <input type="text" id="pole_id" name="pole_id" style="display:none;">
           </span>
           <input type="text" class="form-control" placeholder="Saisir le prénom de l'agent" aria-label="name" id="name"
             name="name" onkeyup="autocomplet()" autocomplete="off" onclick="datnow();">
           <span>
             <ul class="text-success fst-italic ps-0 overflow-auto h-50 text-start"
               style="cursor: pointer; display: none;" id="name_list">
-              <li class="border bg-white" style="list-style-type: none;" onclick="set_item();set_name()"></li>
-              <li class="border bg-white" style="list-style-type: none;" onclick="set_item();set_name()"></li>
+              <li class="border bg-white" style="list-style-type: none;" onclick="set_item();set_name();set_poles()"></li>
+              <li class="border bg-white" style="list-style-type: none;" onclick="set_item();set_name();set_poles()"></li>
             </ul>
           </span>
           <!-- <span><ul id="first_name_list"></ul></span> -->
@@ -170,10 +174,13 @@ else {
       </div>
     </div>
   </form> <!-- ************Table de récap***************** -->
+  <?php if ($msg): ?>
+  <p><?=$msg?></p>
+  <?php endif; ?>
   <?php 
   try {                              
     $pole_service = "pole_service";
-    $stmt = $conn->prepare('SELECT pole_service, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif_start,motif_end,motif_start_id,motif_end_id,absences_absences.id FROM `absences_absences`,`agents`,`absences_motif_start`,`absences_motif_end` WHERE motif_start_id= absences_motif_start.idmotif_start AND motif_end_id= absences_motif_end.idmotif_end AND agents_id=agents.id AND CURRENT_DATE <= date_end ORDER BY pole_service, name ');
+    $stmt = $conn->prepare('SELECT agents.poles_services_id,agents.name,agents.first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif_start,motif_end,motif_start_id,motif_end_id,absences_absences.id,poles_services.name_pole_service FROM `absences_absences`,`poles_services`,`agents`,`absences_motif_start`,`absences_motif_end` WHERE motif_start_id= absences_motif_start.idmotif_start AND motif_end_id= absences_motif_end.idmotif_end AND agents_id=agents.id AND CURRENT_DATE <= date_end AND poles_services.id=agents.poles_services_id ORDER BY poles_services.name_pole_service, agents.name ');
     $stmt->execute();
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e) {
@@ -206,7 +213,7 @@ else {
       <div class="col-md-10 col-6 d-md-flex text-center">
 
         <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase p-1 align-self-center" style="font-size: 0.635em;">
-          <?=$post['pole_service']?>
+          <?=$post['name_pole_service']?>
         </div>
         <div class="col-md-1 col-12 ps-md-5 p-1 text-uppercase align-self-center">
           <?=$post['name']?>

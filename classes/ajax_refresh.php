@@ -22,7 +22,7 @@ if ($queryrow == 0 ) {
 		// put in bold the written text
 		$name = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rs['name']." ".$rs['first_name']);
 		// add new option
-    	echo '<li class="border bg-white" style="list-style-type: none;" onclick="set_item(\''.$rs['name']." ".$rs['first_name'].'\');set_name(\''.$rs['id'].'\')">'.$name.'</li> ';
+    	echo '<li class="border bg-white" style="list-style-type: none;" onclick="set_item(\''.$rs['name']." ".$rs['first_name'].'\');set_name(\''.$rs['id'].'\'); set_poles(\''.$rs['poles_services_id'].'\')">'.$name.'</li> ';
 	}
 }
 
