@@ -29,7 +29,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
 <?php
         header("refresh:2; views/login.php");
     else: 
-        if ($_SESSION["user_pole"] === "COMMUNICATION / DOCUMENTATION​") {            
+        if ($_SESSION["user_pole"] === "1") {            
             echo"
             <div class='container-fluid d-flex mt-2 align-self-center'>
             <h6 class='mt-3 ms-2 mt-auto'>ADMIN PANEL COMMUNICATION / DOCUMENTATION​ :</h6>
