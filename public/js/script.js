@@ -63,6 +63,10 @@ function set_name(item) {
 	// hide proposition list
 	$('#nameUserListe').hide();	
 }
+function set_poles(item) {	
+	$('#pole_id').val(item);	
+	$('#nameUserListe').hide();	
+}
   
 function update(dataid,datamotifend,datamotifendid,datamotifstart,datamotifstartid,datastart,dataend) {		
 	// id du post

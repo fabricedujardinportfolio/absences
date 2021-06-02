@@ -10,8 +10,8 @@
     <?php 
   try {                              
     $pole_service = "pole_service";
-    $stmt = $conn->prepare('SELECT pole_service, name,first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif_start,motif_end,absences_absences.id FROM `absences_absences`,`agents`,`absences_motif_start`,`absences_motif_end` WHERE motif_start_id= absences_motif_start.idmotif_start AND motif_end_id= absences_motif_end.idmotif_end AND agents_id=agents.id AND date_start<=CURRENT_DATE AND CURRENT_DATE < date_end ORDER BY pole_service=? , name , absences_absences.date_start,"%Y/%m/%d"');
-    $stmt->execute([$pole_service]);
+    $stmt = $conn->prepare('SELECT agents.poles_services_id,agents.name,agents.first_name,DATE_FORMAT(date_start, "%d-%m-%Y") AS `date_start`,DATE_FORMAT(date_end, "%d-%m-%Y") AS `date_end`,motif_start,motif_end,motif_start_id,motif_end_id,absences_absences.id,poles_services.name_pole_service FROM `absences_absences`,`poles_services`,`agents`,`absences_motif_start`,`absences_motif_end` WHERE motif_start_id= absences_motif_start.idmotif_start AND motif_end_id= absences_motif_end.idmotif_end AND agents_id=agents.id AND CURRENT_DATE < date_end AND poles_services.id=agents.poles_services_id ORDER BY poles_services.name_pole_service, agents.name , absences_absences.date_start,"%Y/%m/%d"');
+    $stmt->execute([]);
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e) {
       echo "Error: " . $e->getMessage();
@@ -39,7 +39,7 @@
                 <div class="col-md-12  d-flex pt-2 pb-2 border">
                     <div class="col-12 col-md-12 d-md-flex text-center">
                         <div class="col-md-1 col-12 ps-md-1 fw-bold text-uppercase align-self-center" style="font-size: 0.635em;">
-                            <?=$post['pole_service']?>
+                            <?=$post['name_pole_service']?>
                         </div>
                         <div class="col-md-1 col-12 align-self-center">
                             <?=$post['name']?>
