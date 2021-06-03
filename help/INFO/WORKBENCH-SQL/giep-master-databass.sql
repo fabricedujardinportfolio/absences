@@ -271,7 +271,10 @@ CREATE TABLE IF NOT EXISTS `agents_has_applications` (
 
 INSERT INTO `agents_has_applications` (`agents_id`, `applications_id`, `droit`) VALUES
 (116, 1, 'A'),
-(117, 1, 'A');
+(117, 1, 'A'),
+(163, 1, 'U'),
+(162, 1, 'U'),
+(124, 1, 'U');
 
 -- --------------------------------------------------------
 
