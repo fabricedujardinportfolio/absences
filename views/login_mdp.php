@@ -20,23 +20,38 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
 	{
 		try
 		{
-			$select_stmt=$conn->prepare("SELECT * FROM agents WHERE email=:uemail"); //sql select query
+			$select_stmt=$conn->prepare("SELECT agents.id,agents.name,agents.first_name,agents.function,agents.passwords,agents.active,agents.email,agents.poles_services_id,agents_has_applications.agents_id,agents_has_applications.applications_id,agents_has_applications.droit,poles_services.name_pole_service,poles_services.phone FROM `agents`,`agents_has_applications`,`poles_services`,`applications` WHERE agents.id= agents_has_applications.agents_id AND poles_services.id=agents.poles_services_id AND agents_has_applications.applications_id=applications.id AND agents.email=:uemail"); //sql select query
 			$select_stmt->execute(array(':uemail'=>$email));	//execute query with bind parameter
 			$row=$select_stmt->fetch(PDO::FETCH_ASSOC);			
 			if($select_stmt->rowCount() > 0)	//check condition database record greater zero after continue
 			{
 				if($email==$row["email"]) //check condition user taypable "email" is match from database "email" after continue
 				{
-                    $_SESSION["user_pole"] = $row["pole_service"];
+                    $_SESSION["user_pole"] = $row["poles_services_id"];
                     $role = $_SESSION["user_pole"]; 
                     // var_dump($role);   
-                    if ($row["connexion_absences"]=="1" && $row["active"]=="1") {
+                    $_SESSION["agentsid"] = $row["id"];
+                    $agentsid = $_SESSION["agentsid"]; 
+                    // var_dump($agentsid);                     
+                    $_SESSION["agents_app_id"] = $row["agents_id"];
+                    $agents_app_id = $_SESSION["agents_app_id"];
+                    // var_dump($agents_app_id); 
+                    $_SESSION["applications_id"] = $row["applications_id"];
+                    $applications_id = $_SESSION["applications_id"];
+                    // var_dump($applications_id);                    
+                    $_SESSION["active"] = $row["active"];
+                    $active = $_SESSION["active"];
+                    // var_dump($active);
+                    $_SESSION["droit"] = $row["droit"];
+                    $droit = $_SESSION["droit"];
+                    // var_dump($droit);
+                    if ($agentsid==$agents_app_id && $active=="1" && $applications_id=="1") {
                         if($password==$row["passwords"]) //check condition user taypable "password" is match from database "password" using password_verify() after continue
                         {
                             $_SESSION["user_email"] = $row["email"];
                             $_SESSION["user_psw"] = $row["passwords"];
                             $_SESSION["user_login"] = $row["id"];
-                            $_SESSION["user_pole"] = $row["pole_service"];
+                            $_SESSION["user_pole"] = $row["poles_services_id"];
                             //session name is "user_login"
                             $_SESSION["loggedIn"] = true;
                             $loginMsg = "Connexion réussie...";		//user login success message
@@ -102,9 +117,9 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                     <img  src="../public/images/logo.png" alt="logo du giep" width="110" height="72">
                 </div>
                 <div class="text-center">
-                <h1><strong class="text-uppercase">Update MDP</strong></a></h1>
+                <h1><strong class="text-uppercase"> Veuillez vous connecter</strong></a></h1>
                 </div>
-                <h2 class="h3 mb-3 font-weight-normal text-center">Veuillez vous connecter<hr></h2>
+                <h2 class="h3 mb-3 font-weight-normal text-center">Mise à jour du mots de passe<hr></h2>
                 <div class="form-group">
                     <label for="loginEmail" class="pb-1"><strong>Email :</strong></label>
                     <input type="email" class="form-control" id="loginEmail"  placeholder="Entrer votre email" name="email">
@@ -115,6 +130,7 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                 </div>
                 <div class="text-center  mb-3">
                 <button class="btn btn-lg btn btn-primary btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier" style="background-color:#2e4f9b;color:white;">S'identifier</button>
-                </div> 
+                </div>
+                <a href="http://absences/">Retour à application</a>
             </form>
 <?php include("../model/footer.php");?>

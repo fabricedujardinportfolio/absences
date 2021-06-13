@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 03 juin 2021 à 13:57
+-- Généré le : lun. 14 juin 2021 à 08:58
 -- Version du serveur :  8.0.21
 -- Version de PHP : 8.0.3
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `absences_absences` (
   KEY `fk_absences_absences_absences_motif_start1_idx` (`motif_start_id`),
   KEY `fk_absences_absences_absences_motif_end1_idx` (`motif_end_id`),
   KEY `fk_absences_absences_agents1_idx` (`agents_id`,`agents_poles_services_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `absences_absences`
@@ -55,7 +55,6 @@ INSERT INTO `absences_absences` (`id`, `date_start`, `date_end`, `motif_start_id
 (80, '2021-06-14 00:00:00', '2021-06-16 00:00:00', 2, 3, 124, 2),
 (81, '2021-06-14 00:00:00', '2021-06-15 00:00:00', 2, 3, 125, 2),
 (82, '2021-06-07 00:00:00', '2021-06-10 00:00:00', 2, 3, 129, 2),
-(83, '2021-06-04 00:00:00', '2021-06-13 00:00:00', 2, 3, 128, 1),
 (84, '2021-06-21 00:00:00', '2021-06-22 00:00:00', 2, 3, 158, 3),
 (85, '2021-06-11 00:00:00', '2021-06-15 00:00:00', 2, 3, 163, 3),
 (86, '2021-06-07 00:00:00', '2021-06-07 00:00:00', 2, 3, 162, 3),
@@ -93,7 +92,15 @@ INSERT INTO `absences_absences` (`id`, `date_start`, `date_end`, `motif_start_id
 (118, '2021-06-14 00:00:00', '2021-06-20 00:00:00', 2, 3, 190, 5),
 (119, '2021-06-21 00:00:00', '2021-06-27 00:00:00', 2, 3, 192, 5),
 (120, '2021-06-14 00:00:00', '2021-06-14 00:00:00', 2, 2, 193, 5),
-(121, '2021-06-14 00:00:00', '2021-06-15 00:00:00', 2, 3, 199, 13);
+(121, '2021-06-14 00:00:00', '2021-06-15 00:00:00', 2, 3, 199, 13),
+(122, '2021-06-28 00:00:00', '2021-06-28 00:00:00', 2, 3, 135, 12),
+(123, '2021-06-21 00:00:00', '2021-06-25 00:00:00', 2, 3, 213, 10),
+(124, '2021-06-18 00:00:00', '2021-06-21 00:00:00', 2, 3, 166, 6),
+(125, '2021-06-14 00:00:00', '2021-06-20 00:00:00', 2, 3, 208, 4),
+(126, '2021-06-14 00:00:00', '2021-06-14 00:00:00', 2, 3, 209, 4),
+(127, '2021-06-28 00:00:00', '2021-06-30 00:00:00', 2, 3, 145, 11),
+(128, '2021-06-14 00:00:00', '2021-06-16 00:00:00', 2, 3, 156, 11),
+(129, '2021-06-18 00:00:00', '2021-06-21 00:00:00', 3, 3, 157, 11);
 
 -- --------------------------------------------------------
 
@@ -173,7 +180,7 @@ INSERT INTO `agents` (`id`, `name`, `first_name`, `function`, `passwords`, `acti
 (125, 'VELASCO', 'Pascal', 'Directeur adjoint en charge de la formation', '123456', 1, 'pascal.velasco@giep.nc', 2),
 (126, 'GIROLD', 'Laurence', 'Assistante de direction', '123456', 1, 'laurence.girold@giep.nc', 2),
 (127, 'LICHA', 'Franck', 'Agent comptable', '123456', 1, 'franck.licha@giep.nc', 2),
-(128, 'WAIMO', 'Henriette', 'Gestionnaire comptable', '123456', 1, 'henriette.waimo@giep.nc', 1),
+(128, 'WAIMO', 'Henriette', 'Gestionnaire comptable', '123456', 1, 'henriette.waimo@giep.nc', 3),
 (129, 'WAKA-AWA', 'Corine', 'Assistante de formation et administrative', '123456', 1, 'corine.waka-awa@giep.nc', 2),
 (130, 'CACELLI', 'Alexandra', 'Chef du service coordination et Péri-formation', '123456', 1, 'alexandra.cacelli@giep.nc', 12),
 (131, 'BODEOUAROU', 'Myra-Flore', 'Surveillante / Animatrice', '123456', 1, 'myra-flore.bodeouarou@giep.nc', 12),
@@ -272,9 +279,9 @@ CREATE TABLE IF NOT EXISTS `agents_has_applications` (
 INSERT INTO `agents_has_applications` (`agents_id`, `applications_id`, `droit`) VALUES
 (116, 1, 'A'),
 (117, 1, 'A'),
-(163, 1, 'U'),
+(124, 1, 'U'),
 (162, 1, 'U'),
-(124, 1, 'U');
+(163, 1, 'U');
 
 -- --------------------------------------------------------
 
