@@ -131,6 +131,6 @@ if(isset($_REQUEST['valider']))	//button name is "btn_login"
                 <div class="text-center  mb-3">
                 <button class="btn btn-lg btn btn-primary btn-block mt-4 text-center" type="submit" name="valider" value="S'authentifier" style="background-color:#2e4f9b;color:white;">S'identifier</button>
                 </div>
-                <a href="http://absences/">Retour à application</a>
+                <!-- <a href="http://absences/">Retour à application</a> -->
             </form>
 <?php include("../model/footer.php");?>
