@@ -28,6 +28,7 @@ $conn_import = mysqli_connect($db_host, $db_username, $db_password, $db_name);
             echo $sql .'<br>';
           } else 
                  {
+                  fgetcsv($file, 10000, ";");
                   /*********** Variable pour compter le nombre de ligne dans le fichier CSV ************/
                    $fileLines = file($fileName);
                   /************************************************************************************/
@@ -69,7 +70,7 @@ $conn_import = mysqli_connect($db_host, $db_username, $db_password, $db_name);
                             '" . $column[16] . "',
                             '" . $column[17] . "',
                             '" . $column[18] . "',
-                            '" . $column[19] . "')";
+                            '" . addslashes($column[19]) . "')";
                             // Si requéte OK, je comptabilise l'enregistrement
                              if ($result = mysqli_query($conn_import, $sql))
                                 {
@@ -83,8 +84,8 @@ $conn_import = mysqli_connect($db_host, $db_username, $db_password, $db_name);
                         }
                   ?>                 
                   <!-- Affiche le résultat de notre import dans la table CSV -->
-                          <p class= "alert alert-success mx-auto"><strong>1 - </strong><?= $nb.' Lignes insérées dans table temporaire CSV'; ?></p>
-                          <p class= "alert alert-success mx-auto"><strong>2 - </strong><?= count($fileLines).' Lignes Totales'; ?></p>
+                          <p class= "alert alert-success mx-auto"><strong>1 - </strong><?= $nb.' Lignes insérées dans table temporaire CSV moin l\'entête du fichier CSV.'; ?></p>
+                          <p class= "alert alert-success mx-auto"><strong>2 - </strong><?= count($fileLines).' Lignes Totales avec l\'entête du fichier CSV.'; ?></p>
                           <p class= "alert alert-success mx-auto"><strong>3 - </strong><?= $error.' erreurs';?></p>
                 
                   <?php                       
