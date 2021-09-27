@@ -3,9 +3,7 @@ include("../model/header.php");
 require_once '../classes/database.php';
 // if(!isset($_SESSION["user_login"]))	//check condition user login not direct back to index.php page
 // {
-// 	header("location: ../index.php");
-// }
-
+// 	header("locati
 $msg = "";
 $msgupdate = "";
 if (isset($_POST['valider']))

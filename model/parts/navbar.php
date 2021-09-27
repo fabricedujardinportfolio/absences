@@ -53,7 +53,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     </ul>
     <div class="col-12 ms-5">    
     <ul class="nav nav-pills">
-        <li class="nav-item" ><a href="views/login_mdp.php" class="nav-link active" style="background-color:#2e4f9b;" target="_blank">Modifier mon mots de passe</a></li>
+        <li class="nav-item"><a href="http://mot-de-passe-dev/" class="nav-link active" style="background-color:#2e4f9b;" target="_blank">Changer de mot de passe</a></li>
     </ul>
     </div>
 </header>
