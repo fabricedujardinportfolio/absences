@@ -35,7 +35,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
             <div class='container-fluid d-flex mt-2 align-self-center'>
             <h6 class='mt-3 ms-2 mt-auto'>ADMIN PANEL COMMUNICATION / DOCUMENTATION​ :</h6>
             <ul class='nav nav-pills ms-2'>
-                <li class='nav-item'> <a href='http://absences/views/add_agents.php' style='background-color:#2e4f9b;' target='_blank' class='nav-link active'> RAJOUTER UN AGENT</a></li>
+                <li class='nav-item'> <a href='http://bddagents/views/add_agents.php' style='background-color:#2e4f9b;' target='_blank' class='nav-link active'> RAJOUTER UN AGENT</a></li>
             </ul>
             </div>";
             }
@@ -53,7 +53,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     </ul>
     <div class="col-12 ms-5">    
     <ul class="nav nav-pills">
-        <li class="nav-item"><a href="http://mot-de-passe-dev/" class="nav-link active" style="background-color:#2e4f9b;" target="_blank">Changer de mot de passe</a></li>
+        <li class="nav-item"><a href="http://mot-de-passe/" class="nav-link active" style="background-color:#2e4f9b;" target="_blank">Changer de mot de passe</a></li>
     </ul>
     </div>
 </header>

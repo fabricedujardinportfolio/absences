@@ -2,7 +2,7 @@
 $db_host = "localhost";
 $db_username = "root";
 $db_password = "58Lj9pqJNHAabK9O";
-$db_name = "giep-master-databass-test-2";    //database name
+$db_name = "giep-master-databass";    //database name
 
 try {
     $conn = new PDO("mysql:host={$db_host};dbname={$db_name}", $db_username, $db_password);
@@ -20,7 +20,7 @@ try {
 class Databases
 {
     //Nos constantes
-    const DB_HOST = 'mysql:host=localhost;dbname=giep-master-databass-test-2;';
+    const DB_HOST = 'mysql:host=localhost;dbname=giep-master-databass;';
     const DB_USER = 'root';
     const DB_PASS = '58Lj9pqJNHAabK9O';
 
