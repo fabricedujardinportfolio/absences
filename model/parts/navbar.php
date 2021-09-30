@@ -7,6 +7,27 @@
   $dashboard_path = $root . "views/dashboard.php";
 ?>
 <!-- SCRIPT ICI -->
+<script>
+function myFunction() {
+  var r = confirm("Attention vous allez quitter l’application pour ouvrir l’application « mot de passe »");
+  
+  if (r == true) {
+    // location.replace("http://ressources/logout");
+    var open = window.open('http://mot-de-passe/');
+    var urlList = [
+    "http://absences/views/logout.php"
+  ];
+    for( var i in urlList ){
+      window.location.href = urlList[i];
+        i++;
+    }
+  } else {
+    open = "";
+    return open;
+  }
+  window.open(open);
+}
+</script>
 <style>
 .maxHeight {
     max-height : 43px;
@@ -53,7 +74,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
     </ul>
     <div class="col-12 ms-5">    
     <ul class="nav nav-pills">
-        <li class="nav-item"><a href="http://mot-de-passe/" class="nav-link active" style="background-color:#2e4f9b;" target="_blank">Changer de mot de passe</a></li>
+        <li class="nav-item"><a href="#" class="nav-link active" style="background-color:#2e4f9b;" target="_blank" onclick="myFunction()">Changer de mot de passe</a></li>
     </ul>
     </div>
 </header>
