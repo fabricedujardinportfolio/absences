@@ -51,15 +51,6 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] == false):
 <?php
         header("refresh:2; views/login.php");
     else: 
-        if ($_SESSION["user_pole"] === "1") {            
-            echo"
-            <div class='container-fluid d-flex mt-2 align-self-center'>
-            <h6 class='mt-3 ms-2 mt-auto'>ADMIN PANEL COMMUNICATION / DOCUMENTATION​ :</h6>
-            <ul class='nav nav-pills ms-2'>
-                <li class='nav-item'> <a href='http://bddagents/views/add_agents.php' style='background-color:#2e4f9b;' target='_blank' class='nav-link active'> RAJOUTER UN AGENT</a></li>
-            </ul>
-            </div>";
-            }
 ?>
 
 <div class="container-fluid">
