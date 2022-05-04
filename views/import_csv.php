@@ -64,12 +64,12 @@ $conn_import = mysqli_connect($db_host, $db_username, $db_password, $db_name);
                             '" . $column[10] . "',
                             '" . $column[11] . "',
                             '" . $column[12] . "',
-                            '" . $column[13] . "',
-                            '" . $column[14] . "',
+                            '" . addslashes($column[13]) . "',
+                            '" . addslashes($column[14]) . "',
                             '" . $column[15] . "',
                             '" . $column[16] . "',
                             '" . $column[17] . "',
-                            '" . $column[18] . "',
+                            '" . addslashes($column[18]) . "',
                             '" . addslashes($column[19]) . "')";
                             // Si requéte OK, je comptabilise l'enregistrement
                              if ($result = mysqli_query($conn_import, $sql))
