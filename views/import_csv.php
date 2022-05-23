@@ -45,7 +45,7 @@ $conn_import = mysqli_connect($db_host, $db_username, $db_password, $db_name);
                           $date_fin = $anne.'-'.$mois.'-'.$jour;
                                                 
                           if ($column[7]=="X") {$temoin_deb = 3;}else {$temoin_deb = 2;}
-                          if ($column[9]=="X") {$temoin_fin = 3;}else {$temoin_fin = 2;}
+                          if ($column[9]=="X") {$temoin_fin = 2;}else {$temoin_fin = 3;}
                           
                           // Prépare ma  requéte d'insertion
                            $sql = "INSERT into csv ( nom,matricule,bs,qr,date_entree,date_sortie,date_debut,temoin_midi_debut,date_fin,temoin_midi_fin,temoin_prolongation,
